@@ -3,7 +3,7 @@ model01.py is an example of how to access model parameter values that you are st
 in the database and use them to make a prediction when a route associated with prediction is
 accessed. 
 """
-from backend.db_connection import db
+from backend.db_connection import get_db
 import numpy as np
 # import logging
 
@@ -24,7 +24,7 @@ def predict(var01, var02):
   Retreives model parameters from the database and uses them for real-time prediction
   """
   # get a database cursor 
-  cursor = db.get_db().cursor()
+  cursor = get_db().cursor(dictionary=True)
   # get the model params from the database
   query = 'SELECT beta_vals FROM model1_params ORDER BY sequence_number DESC LIMIT 1'
   cursor.execute(query)

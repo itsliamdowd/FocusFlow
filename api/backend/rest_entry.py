@@ -4,7 +4,7 @@ import os
 import logging
 from logging.handlers import RotatingFileHandler
 
-from backend.db_connection import db
+from backend.db_connection import init_app as init_db
 from backend.simple.simple_routes import simple_routes
 from backend.ngos.ngo_routes import ngos
 
@@ -43,7 +43,7 @@ def create_app():
 
     # Initialize the database object with the settings above.
     app.logger.info("current_app(): starting the database connection")
-    db.init_app(app)
+    init_db(app)
 
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
