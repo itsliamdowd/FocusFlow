@@ -34,39 +34,47 @@ SideBarLinks(show_home=True)
 
 logger.info("Loading the Home page of the app")
 st.title('CS 3200 Project Template')
-st.write('#### Hi! As which user would you like to log in?')
+st.write('Who would you like to login as')
 
 # For each of the user personas for which we are implementing
 # functionality, we put a button on the screen that the user
 # can click to MIMIC logging in as that mock user.
 
-if st.button("Act as John, a Political Strategy Advisor",
+if st.button("Act as Maya, a Student.",
              type='primary',
              use_container_width=True):
     # when user clicks the button, they are now considered authenticated
     st.session_state['authenticated'] = True
     # we set the role of the current user
-    st.session_state['role'] = 'pol_strat_advisor'
+    st.session_state['role'] = 'student'
     # we add the first name of the user (so it can be displayed on
     # subsequent pages).
-    st.session_state['first_name'] = 'John'
+    st.session_state['first_name'] = 'Maya'
     # finally, we ask streamlit to switch to another page, in this case, the
     # landing page for this particular user type
-    logger.info("Logging in as Political Strategy Advisor Persona")
-    st.switch_page('pages/00_Pol_Strat_Home.py')
+    logger.info("Logging in as Student Persona")
+    st.switch_page('pages/00_Student_Home.py')
 
-if st.button('Act as Mohammad, a USAID Worker',
+if st.button('Act as Dr. Smith, a Professor.',
              type='primary',
              use_container_width=True):
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'usaid_worker'
-    st.session_state['first_name'] = 'Mohammad'
+    st.session_state['role'] = 'professor'
+    st.session_state['first_name'] = 'Dr. Smith'
     st.switch_page('pages/10_USAID_Worker_Home.py')
 
 if st.button('Act as System Administrator',
              type='primary',
              use_container_width=True):
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'administrator'
-    st.session_state['first_name'] = 'SysAdmin'
+    st.session_state['role'] = 'system admin'
+    st.session_state['first_name'] = 'Jimmy'
+    st.switch_page('pages/20_Admin_Home.py')
+
+if st.button('Act as a Data Analyst.',
+             type='primary',
+             use_container_width=True):
+    st.session_state['authenticated'] = True
+    st.session_state['role'] = 'data analyst'
+    st.session_state['first_name'] = 'James'
     st.switch_page('pages/20_Admin_Home.py')
