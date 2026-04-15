@@ -9,12 +9,16 @@ st.write("# About this App")
 
 st.markdown(
     """
-    This is a demo app for Data and Software in International Government and Politics Dialogue 2025 Project Course.  
+    FocusFlow is a data-driven productivity and focus management app built to help students,
+    professors, and analysts manage time, track focus sessions, and gain insights into productivity.
 
-    The goal of this demo is to provide information on the tech stack 
-    being used as well as demo some of the features of the various platforms. 
 
-    Stay tuned for more information and features to come!
+    FocusFlow supports four user types:
+
+    - Students: task and timer management
+    - Professors: course and assignment oversight
+    - Data analysts: productivity trend analysis
+    - System administrators: data quality and platform monitoring
     """
 )
 
