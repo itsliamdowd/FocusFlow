@@ -15,11 +15,11 @@ def about_page_nav():
     st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
 
 
-# ---- Role: pol_strat_advisor ------------------------------------------------
+# ---- Role: Student ------------------------------------------------
 
-def pol_strat_home_nav():
+def student_home_nav():
     st.sidebar.page_link(
-        "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
+        "pages/00_Student_Home.py", label="Student Home", icon="👤"
     )
 
 
@@ -33,11 +33,11 @@ def map_demo_nav():
     st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
 
 
-# ---- Role: usaid_worker -----------------------------------------------------
+# ---- Role: Professor -----------------------------------------------------
 
-def usaid_worker_home_nav():
+def professor_home_nav():
     st.sidebar.page_link(
-        "pages/10_USAID_Worker_Home.py", label="USAID Worker Home", icon="🏠"
+        "pages/10_USAID_Worker_Home.py", label="Professor Home", icon="🏠"
     )
 
 
@@ -65,7 +65,18 @@ def classification_nav():
     )
 
 
-# ---- Role: administrator ----------------------------------------------------
+# ---- Role: Data Analyst ----------------------------------------------------
+
+def data_analyst_home_nav():
+    st.sidebar.page_link("pages/20_Admin_Home.py", label="Data Analyst Home", icon="🖥️")
+
+
+def ml_model_mgmt_nav():
+    st.sidebar.page_link(
+        "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
+    )
+
+# ---- Role: System Administrator ---------------------------------------------
 
 def admin_home_nav():
     st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
@@ -75,7 +86,6 @@ def ml_model_mgmt_nav():
     st.sidebar.page_link(
         "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
     )
-
 
 # ---- Sidebar assembly -------------------------------------------------------
 
@@ -98,20 +108,24 @@ def SideBarLinks(show_home=False):
 
     if st.session_state["authenticated"]:
 
-        if st.session_state["role"] == "pol_strat_advisor":
-            pol_strat_home_nav()
+        if st.session_state["role"] == "student":
+            student_home_nav()
             world_bank_viz_nav()
             map_demo_nav()
 
-        if st.session_state["role"] == "usaid_worker":
-            usaid_worker_home_nav()
+        if st.session_state["role"] == "professor":
+            professor_home_nav()
             ngo_directory_nav()
             add_ngo_nav()
             prediction_nav()
             api_test_nav()
             classification_nav()
 
-        if st.session_state["role"] == "administrator":
+        if st.session_state["role"] == "data analyst":
+            data_analyst_home_nav()
+            ml_model_mgmt_nav()
+
+        if st.session_state["role"] == "system admin":
             admin_home_nav()
             ml_model_mgmt_nav()
 
