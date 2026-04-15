@@ -25,7 +25,7 @@ def student_home_nav():
 
 def world_bank_viz_nav():
     st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
+        "pages/01_Tasks_Viz.py", label="World Bank Visualization", icon="🏦"
     )
 
 
