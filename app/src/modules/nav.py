@@ -37,7 +37,7 @@ def map_demo_nav():
 
 def professor_home_nav():
     st.sidebar.page_link(
-        "pages/10_USAID_Worker_Home.py", label="Professor Home", icon="🏠"
+        "pages/10_Professor_Home.py", label="Professor Home", icon="🏠"
     )
 
 
