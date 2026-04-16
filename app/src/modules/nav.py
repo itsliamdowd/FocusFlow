@@ -3,6 +3,7 @@
 # This file has functions to add links to the left sidebar based on the user's role.
 
 import streamlit as st
+from win32comext.shell.demos.servers.folder_view import tasks
 
 
 # ---- General ----------------------------------------------------------------
@@ -19,19 +20,24 @@ def about_page_nav():
 
 def student_home_nav():
     st.sidebar.page_link(
-        "pages/00_Student_Home.py", label="Student Home", icon="👤"
+        "pages/00_Student_Home.py", label="Student Home", icon="📋"
     )
 
 
-def world_bank_viz_nav():
+def tasks_viz_nav():
     st.sidebar.page_link(
-        "pages/01_Tasks_Viz.py", label="World Bank Visualization", icon="🏦"
+        "pages/01_Tasks_Viz.py", label="Tasks Visualization", icon="📋"
     )
 
+def timer_nav():
+    st.sidebar.page_link(
+        "pages/02_Timer.py", label = "Timer", icon = "⏱️"
+    )
 
-def map_demo_nav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
-
+def student_analytics_nav():
+    st.sidebar.page_link(
+        "pages/03_student_analytics.py", label = "Analytics", icon = "📈"
+    )
 
 # ---- Role: Professor -----------------------------------------------------
 
@@ -110,7 +116,7 @@ def SideBarLinks(show_home=False):
 
         if st.session_state["role"] == "student":
             student_home_nav()
-            world_bank_viz_nav()
+            tasks_viz_nav()
             map_demo_nav()
 
         if st.session_state["role"] == "professor":
