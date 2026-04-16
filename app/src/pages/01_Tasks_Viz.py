@@ -12,30 +12,31 @@ st.set_page_config(layout='wide')
 # Call the SideBarLinks from the nav module in the modules directory
 SideBarLinks()
 
-# set the header of the page
-st.header('Tasks')
+st.title("Tasks")
 
-# You can access the session state to make a more customized/personalized app experience
-st.write(f"### Hi, {st.session_state['first_name']}.")
+# Add task
+with st.form("add_task"):
+    title = st.text_input("Task Title")
+    category = st.selectbox("Category", ["School", "Work", "Extracurricular"])
+    priority = st.selectbox("Priority", ["Low", "Medium", "High"])
+    submitted = st.form_submit_button("Add Task")
 
-# get the countries from the world bank data
-with st.echo(code_location='above'):
-    countries:pd.DataFrame = wb.get_countries()
-   
-    st.dataframe(countries)
+    if submitted:
+        st.session_state.tasks.append({
+            "title": title,
+            "category": category,
+            "priority": priority
+        })
+        st.success("Task added!")
 
-# the with statment shows the code for this block above it 
-with st.echo(code_location='above'):
-    arr = np.random.normal(1, 1, size=100)
-    test_plot, ax = plt.subplots()
-    ax.hist(arr, bins=20)
+# Display tasks
+st.subheader("Your Tasks")
 
-    st.pyplot(test_plot)
+for task in st.session_state.tasks:
+    col1, col2 = st.columns([4,1])
 
+    with col1:
+        st.write(f"**{task['title']}** ({task['category']}, {task['priority']})")
 
-with st.echo(code_location='above'):
-    slim_countries = countries[countries['incomeLevel'] != 'Aggregates']
-    data_crosstab = pd.crosstab(slim_countries['region'], 
-                                slim_countries['incomeLevel'],  
-                                margins = False) 
-    st.table(data_crosstab)
+    with col2:
+        st.button("Delete", key= task["title"] + "_delete")
