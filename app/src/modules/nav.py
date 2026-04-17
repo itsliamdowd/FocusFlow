@@ -102,11 +102,9 @@ def SideBarLinks(show_home=False):
 
         if st.session_state["role"] == "professor":
             professor_home_nav()
-            ngo_directory_nav()
-            add_ngo_nav()
-            prediction_nav()
-            api_test_nav()
-            classification_nav()
+            professor_courses_nav()
+            professor_roster_nav()
+            professor_assignments_nav()
 
         if st.session_state["role"] == "data analyst":
             data_analyst_home_nav()
