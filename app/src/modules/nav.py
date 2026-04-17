@@ -60,7 +60,7 @@ def professor_assignments_nav():
 # ---- Role: Data Analyst ----------------------------------------------------
 
 def data_analyst_home_nav():
-    st.sidebar.page_link("pages/20_Admin_Home.py", label="Data Analyst Home", icon="🖥️")
+    st.sidebar.page_link("pages/17_Data_Analyst_Home.py", label="Data Analyst Home", icon="🖥️")
 
 
 # ---- Role: System Administrator ---------------------------------------------

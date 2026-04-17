@@ -18,7 +18,7 @@ if ngo_id is None:
         st.switch_page("pages/14_NGO_Directory.py")
 else:
     # API endpoint
-    API_URL = f"http://web-api:4000/ngo/ngos/{ngo_id}"
+    API_URL = f"http://api:4000/ngo/ngos/{ngo_id}"
 
     try:
         # Fetch NGO details

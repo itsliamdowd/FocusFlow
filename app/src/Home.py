@@ -17,10 +17,8 @@ from modules.nav import SideBarLinks
 # are organized/displayed on the screen).
 st.set_page_config(layout='wide')
 
-# If a user is at this page, we assume they are not
-# authenticated.  So we change the 'authenticated' value
-# in the streamlit session_state to false.
-st.session_state['authenticated'] = False
+# If a user is at this page, assume unauthenticated by default.
+st.session_state.setdefault('authenticated', False)
 
 # Use the SideBarLinks function from src/modules/nav.py to control
 # the links displayed on the left-side panel.
@@ -50,6 +48,8 @@ if st.button("Act as Maya, a Student.",
     # we add the first name of the user (so it can be displayed on
     # subsequent pages).
     st.session_state['first_name'] = 'Maya'
+    st.session_state['user_id'] = 1
+    st.session_state['institution_id'] = 1
     # finally, we ask streamlit to switch to another page, in this case, the
     # landing page for this particular user type
     logger.info("Logging in as Student Persona")
@@ -62,6 +62,7 @@ if st.button('Act as Dr. Smith, a Professor.',
     st.session_state['role'] = 'professor'
     st.session_state['first_name'] = 'Dr. Smith'
     st.session_state['user_id'] = 3
+    st.session_state['institution_id'] = 2
     st.switch_page('pages/10_Professor_Home.py')
 
 if st.button('Act as System Administrator',
