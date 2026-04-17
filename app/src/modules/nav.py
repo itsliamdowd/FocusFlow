@@ -3,7 +3,6 @@
 # This file has functions to add links to the left sidebar based on the user's role.
 
 import streamlit as st
-from win32comext.shell.demos.servers.folder_view import tasks
 
 
 # ---- General ----------------------------------------------------------------
@@ -46,29 +45,16 @@ def professor_home_nav():
         "pages/10_Professor_Home.py", label="Professor Home", icon="🏠"
     )
 
-
-def ngo_directory_nav():
-    st.sidebar.page_link("pages/14_NGO_Directory.py", label="NGO Directory", icon="📁")
-
-
-def add_ngo_nav():
-    st.sidebar.page_link("pages/15_Add_NGO.py", label="Add New NGO", icon="➕")
+def professor_courses_nav():
+    st.sidebar.page_link("pages/11_Professor_Courses.py", label="My Courses", icon="📚")
 
 
-def prediction_nav():
-    st.sidebar.page_link(
-        "pages/11_Prediction.py", label="Regression Prediction", icon="📈"
-    )
+def professor_roster_nav():
+    st.sidebar.page_link("pages/12_Professor_Roster.py", label="Student Roster", icon="👥")
 
 
-def api_test_nav():
-    st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
-
-
-def classification_nav():
-    st.sidebar.page_link(
-        "pages/13_Classification.py", label="Classification Demo", icon="🌺"
-    )
+def professor_assignments_nav():
+    st.sidebar.page_link("pages/13_Professor_Assignments.py", label="Assignments", icon="📝")
 
 
 # ---- Role: Data Analyst ----------------------------------------------------
@@ -76,11 +62,6 @@ def classification_nav():
 def data_analyst_home_nav():
     st.sidebar.page_link("pages/20_Admin_Home.py", label="Data Analyst Home", icon="🖥️")
 
-
-def ml_model_mgmt_nav():
-    st.sidebar.page_link(
-        "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
-    )
 
 # ---- Role: System Administrator ---------------------------------------------
 
