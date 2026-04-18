@@ -14,12 +14,58 @@ st.write('Slice student productivity data by major and class year to compare coh
 
 institutions = [
 	'All Institutions',
-	'University of Toronto',
-	'McGill University',
-	'University of British Columbia',
-	'University of Waterloo',
+	'Northeastern University',
+	'Boston University',
+	'MIT',
+	'Harvard University',
+	'Tufts University',
+	'Stanford University',
+	'Yale University',
+	'Columbia University',
+	'Duke University',
+	'Georgetown University',
+	'Princeton University',
+	'Brown University',
+	'Cornell University',
+	'University of Pennsylvania',
+	'NYU',
+	'UCLA',
+	'UC Berkeley',
+	'University of Michigan',
+	'University of Chicago',
+	'Northwestern University',
+	'Carnegie Mellon University',
+	'Johns Hopkins University',
+	'Vanderbilt University',
+	'Rice University',
+	'Emory University',
+	'University of Virginia',
+	'University of Notre Dame',
+	'Washington University in St. Louis',
+	'Georgia Tech',
+	'University of Southern California',
 ]
-majors = ['Computer Science', 'Data Science']
+majors = [
+	'All Majors',
+	'Mathematics',
+	'Health Sciences',
+	'Engineering',
+	'Business',
+	'Computer Science',
+	'Psychology',
+	'Economics',
+	'Law',
+	'Philosophy',
+	'Education',
+	'Art',
+	'Biology',
+	'Chemistry',
+	'Physics',
+	'Sociology',
+	'Political Science',
+	'English',
+	'Literature',
+]
 years = [1, 2, 3, 4]
 
 col1, col2, col3 = st.columns(3)
@@ -35,9 +81,11 @@ with col3:
 
 if st.button('Apply Filters', type='primary'):
 	query_params = {
-		'major': selected_major,
 		'year': selected_year,
 	}
+
+	if selected_major != 'All Majors':
+		query_params['major'] = selected_major
 
 	if selected_institution != 'All Institutions':
 		query_params['institution'] = selected_institution
