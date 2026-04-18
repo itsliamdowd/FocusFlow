@@ -1,0 +1,691 @@
+course_id,professor_id,department_id,title,course_code
+1,1,1,Probability,MTH 212
+2,1,1,Calculus,MTH 323
+3,1,1,Linear Algebra,MTH 114
+4,2,2,Biostatistics,HSC 339
+5,2,2,Physiology,HSC 418
+6,2,2,Anatomy,HSC 301
+7,3,3,Thermodynamics,ENG 169
+8,3,3,Dynamics,ENG 193
+9,4,4,Child Development,EDU 332
+10,4,4,Educational Psychology,EDU 272
+11,4,4,Curriculum Design,EDU 242
+12,5,5,Drawing,ART 483
+13,5,5,Digital Media,ART 279
+14,5,5,Photography,ART 432
+15,6,6,Accounting,BUS 202
+16,6,6,Finance,BUS 418
+17,7,7,Ethics,HUM 388
+18,7,7,History,HUM 338
+19,7,7,Cultural Studies,HUM 492
+20,8,8,Machine Learning,CS 259
+21,8,8,Algorithms,CS 396
+22,8,8,Databases,CS 259
+23,9,9,Educational Psychology,EDU 403
+24,9,9,Curriculum Design,EDU 152
+25,9,9,Child Development,EDU 450
+26,10,10,Physiology,HSC 438
+27,10,10,Biostatistics,HSC 135
+28,11,11,Linear Algebra,MTH 154
+29,11,11,Probability,MTH 285
+30,12,12,Macroeconomics,ECN 415
+31,12,12,Microeconomics,ECN 338
+32,12,12,Econometrics,ECN 474
+33,13,13,Constitutional Law,LAW 330
+34,13,13,Contract Law,LAW 484
+35,13,13,Criminal Law,LAW 391
+36,14,14,Logic,PHL 193
+37,14,14,Metaphysics,PHL 208
+38,14,14,Epistemology,PHL 232
+39,15,15,Political Science,SOC 364
+40,15,15,Anthropology,SOC 143
+41,15,15,Sociology,SOC 468
+42,16,16,Thermodynamics,ENG 430
+43,16,16,Statics,ENG 329
+44,16,16,Dynamics,ENG 147
+45,17,17,Dynamics,ENG 439
+46,17,17,Statics,ENG 342
+47,17,17,Thermodynamics,ENG 317
+48,18,18,Biostatistics,HSC 256
+49,18,18,Physiology,HSC 218
+50,18,18,Anatomy,HSC 469
+51,19,19,Accounting,BUS 210
+52,19,19,Finance,BUS 241
+53,19,19,Marketing,BUS 151
+54,20,20,Cognitive Psychology,PSY 254
+55,20,20,Developmental Psychology,PSY 462
+56,20,20,Abnormal Psychology,PSY 240
+57,21,21,Contract Law,LAW 457
+58,21,21,Criminal Law,LAW 426
+59,22,22,Ethics,HUM 340
+60,22,22,History,HUM 325
+61,23,23,Microeconomics,ECN 158
+62,23,23,Macroeconomics,ECN 305
+63,23,23,Econometrics,ECN 137
+64,24,24,Curriculum Design,EDU 227
+65,24,24,Child Development,EDU 385
+66,24,24,Educational Psychology,EDU 410
+67,25,25,Child Development,EDU 401
+68,25,25,Educational Psychology,EDU 256
+69,25,25,Curriculum Design,EDU 412
+70,26,26,Probability,MTH 438
+71,26,26,Calculus,MTH 180
+72,26,26,Linear Algebra,MTH 188
+73,27,27,Microeconomics,ECN 452
+74,27,27,Macroeconomics,ECN 249
+75,27,27,Econometrics,ECN 218
+76,28,28,Contract Law,LAW 451
+77,28,28,Criminal Law,LAW 235
+78,28,28,Constitutional Law,LAW 317
+79,29,29,Political Science,SOC 172
+80,29,29,Sociology,SOC 130
+81,29,29,Anthropology,SOC 257
+82,30,30,Accounting,BUS 458
+83,30,30,Marketing,BUS 239
+84,30,30,Finance,BUS 324
+85,31,31,Chemistry,SCI 409
+86,31,31,Physics,SCI 113
+87,32,32,Photography,ART 395
+88,32,32,Drawing,ART 490
+89,32,32,Digital Media,ART 340
+90,33,33,Cognitive Psychology,PSY 146
+91,33,33,Developmental Psychology,PSY 278
+92,33,33,Abnormal Psychology,PSY 270
+93,34,34,Logic,PHL 310
+94,34,34,Metaphysics,PHL 247
+95,35,35,Dynamics,ENG 261
+96,35,35,Statics,ENG 265
+97,36,36,Machine Learning,CS 311
+98,36,36,Algorithms,CS 196
+99,36,36,Databases,CS 418
+100,37,37,Sociology,SOC 381
+101,37,37,Political Science,SOC 247
+102,37,37,Anthropology,SOC 457
+103,38,38,American Literature,LIT 463
+104,38,38,Creative Writing,LIT 259
+105,39,39,Drawing,ART 336
+106,39,39,Photography,ART 431
+107,39,39,Digital Media,ART 355
+108,40,40,Child Development,EDU 224
+109,40,40,Educational Psychology,EDU 382
+110,40,40,Curriculum Design,EDU 296
+111,41,41,Accounting,BUS 274
+112,41,41,Marketing,BUS 101
+113,41,41,Finance,BUS 471
+114,42,42,Cognitive Psychology,PSY 276
+115,42,42,Developmental Psychology,PSY 382
+116,42,42,Abnormal Psychology,PSY 333
+117,43,43,Creative Writing,LIT 219
+118,43,43,American Literature,LIT 122
+119,43,43,British Literature,LIT 481
+120,44,44,Physiology,HSC 118
+121,44,44,Anatomy,HSC 357
+122,44,44,Biostatistics,HSC 151
+123,45,45,Educational Psychology,EDU 107
+124,45,45,Child Development,EDU 309
+125,46,46,Anthropology,SOC 273
+126,46,46,Political Science,SOC 432
+127,47,47,Probability,MTH 420
+128,47,47,Linear Algebra,MTH 377
+129,47,47,Calculus,MTH 416
+130,48,48,Epistemology,PHL 482
+131,48,48,Metaphysics,PHL 322
+132,48,48,Logic,PHL 489
+133,49,49,Logic,PHL 123
+134,49,49,Metaphysics,PHL 128
+135,49,49,Epistemology,PHL 283
+136,50,50,American Literature,LIT 389
+137,50,50,Creative Writing,LIT 187
+138,50,50,British Literature,LIT 140
+139,51,51,History,HUM 336
+140,51,51,Ethics,HUM 335
+141,51,51,Cultural Studies,HUM 441
+142,52,52,Digital Media,ART 326
+143,52,52,Drawing,ART 400
+144,52,52,Photography,ART 427
+145,53,53,Dynamics,ENG 296
+146,53,53,Thermodynamics,ENG 154
+147,53,53,Statics,ENG 295
+148,54,54,Physics,SCI 437
+149,54,54,Chemistry,SCI 240
+150,54,54,Biology,SCI 389
+151,55,55,Criminal Law,LAW 212
+152,55,55,Constitutional Law,LAW 417
+153,55,55,Contract Law,LAW 447
+154,56,56,Biostatistics,HSC 258
+155,56,56,Anatomy,HSC 117
+156,57,57,Microeconomics,ECN 482
+157,57,57,Macroeconomics,ECN 189
+158,57,57,Econometrics,ECN 167
+159,58,58,Sociology,SOC 251
+160,58,58,Anthropology,SOC 158
+161,58,58,Political Science,SOC 138
+162,59,59,Biostatistics,HSC 146
+163,59,59,Physiology,HSC 107
+164,59,59,Anatomy,HSC 374
+165,60,60,Criminal Law,LAW 426
+166,60,60,Contract Law,LAW 155
+167,60,60,Constitutional Law,LAW 341
+168,61,61,Photography,ART 425
+169,61,61,Drawing,ART 458
+170,61,61,Digital Media,ART 432
+171,62,62,Ethics,HUM 119
+172,62,62,Cultural Studies,HUM 352
+173,63,63,American Literature,LIT 298
+174,63,63,Creative Writing,LIT 289
+175,64,64,Marketing,BUS 415
+176,64,64,Accounting,BUS 243
+177,64,64,Finance,BUS 453
+178,65,65,Child Development,EDU 285
+179,65,65,Educational Psychology,EDU 451
+180,65,65,Curriculum Design,EDU 378
+181,66,66,Physiology,HSC 197
+182,66,66,Biostatistics,HSC 332
+183,67,67,Thermodynamics,ENG 270
+184,67,67,Statics,ENG 164
+185,67,67,Dynamics,ENG 135
+186,68,68,Calculus,MTH 405
+187,68,68,Linear Algebra,MTH 241
+188,68,68,Probability,MTH 166
+189,69,69,Accounting,BUS 107
+190,69,69,Finance,BUS 221
+191,69,69,Marketing,BUS 108
+192,70,70,Drawing,ART 369
+193,70,70,Photography,ART 481
+194,70,70,Digital Media,ART 343
+195,71,71,Epistemology,PHL 357
+196,71,71,Logic,PHL 414
+197,71,71,Metaphysics,PHL 472
+198,72,72,Econometrics,ECN 345
+199,72,72,Microeconomics,ECN 318
+200,72,72,Macroeconomics,ECN 351
+201,73,73,Logic,PHL 411
+202,73,73,Metaphysics,PHL 133
+203,74,74,Biostatistics,HSC 405
+204,74,74,Physiology,HSC 332
+205,74,74,Anatomy,HSC 150
+206,75,75,Anthropology,SOC 311
+207,75,75,Political Science,SOC 332
+208,75,75,Sociology,SOC 312
+209,76,76,Digital Media,ART 291
+210,76,76,Photography,ART 451
+211,76,76,Drawing,ART 134
+212,77,77,Biology,SCI 149
+213,77,77,Chemistry,SCI 166
+214,78,78,Creative Writing,LIT 281
+215,78,78,American Literature,LIT 469
+216,78,78,British Literature,LIT 247
+217,79,79,Algorithms,CS 436
+218,79,79,Machine Learning,CS 214
+219,79,79,Databases,CS 279
+220,80,80,History,HUM 319
+221,80,80,Ethics,HUM 411
+222,81,81,American Literature,LIT 459
+223,81,81,British Literature,LIT 273
+224,82,82,Accounting,BUS 389
+225,82,82,Finance,BUS 135
+226,83,83,Calculus,MTH 292
+227,83,83,Probability,MTH 332
+228,84,84,Digital Media,ART 497
+229,84,84,Photography,ART 126
+230,84,84,Drawing,ART 180
+231,85,85,Developmental Psychology,PSY 438
+232,85,85,Abnormal Psychology,PSY 348
+233,86,86,Physiology,HSC 276
+234,86,86,Anatomy,HSC 156
+235,86,86,Biostatistics,HSC 447
+236,87,87,Algorithms,CS 406
+237,87,87,Machine Learning,CS 103
+238,87,87,Databases,CS 254
+239,88,88,Metaphysics,PHL 161
+240,88,88,Epistemology,PHL 354
+241,88,88,Logic,PHL 189
+242,89,89,Machine Learning,CS 136
+243,89,89,Algorithms,CS 479
+244,89,89,Databases,CS 323
+245,90,90,Biology,SCI 393
+246,90,90,Chemistry,SCI 463
+247,90,90,Physics,SCI 248
+248,91,91,Sociology,SOC 416
+249,91,91,Anthropology,SOC 453
+250,91,91,Political Science,SOC 145
+251,92,92,Drawing,ART 401
+252,92,92,Digital Media,ART 368
+253,93,93,Linear Algebra,MTH 270
+254,93,93,Probability,MTH 139
+255,93,93,Calculus,MTH 371
+256,94,94,Criminal Law,LAW 152
+257,94,94,Constitutional Law,LAW 231
+258,94,94,Contract Law,LAW 188
+259,95,95,Accounting,BUS 337
+260,95,95,Marketing,BUS 448
+261,96,96,American Literature,LIT 340
+262,96,96,British Literature,LIT 423
+263,96,96,Creative Writing,LIT 240
+264,97,97,Epistemology,PHL 336
+265,97,97,Logic,PHL 119
+266,97,97,Metaphysics,PHL 288
+267,98,98,Abnormal Psychology,PSY 414
+268,98,98,Cognitive Psychology,PSY 336
+269,99,99,Econometrics,ECN 409
+270,99,99,Microeconomics,ECN 356
+271,99,99,Macroeconomics,ECN 131
+272,100,100,Dynamics,ENG 358
+273,100,100,Statics,ENG 120
+274,101,101,Marketing,BUS 290
+275,101,101,Accounting,BUS 298
+276,101,101,Finance,BUS 496
+277,102,102,Educational Psychology,EDU 133
+278,102,102,Child Development,EDU 148
+279,103,103,British Literature,LIT 141
+280,103,103,American Literature,LIT 279
+281,103,103,Creative Writing,LIT 435
+282,104,104,Political Science,SOC 386
+283,104,104,Sociology,SOC 429
+284,104,104,Anthropology,SOC 165
+285,105,105,Photography,ART 285
+286,105,105,Digital Media,ART 192
+287,105,105,Drawing,ART 274
+288,106,106,Anatomy,HSC 139
+289,106,106,Biostatistics,HSC 151
+290,106,106,Physiology,HSC 438
+291,107,107,Finance,BUS 183
+292,107,107,Marketing,BUS 454
+293,107,107,Accounting,BUS 469
+294,108,108,History,HUM 446
+295,108,108,Cultural Studies,HUM 327
+296,109,109,American Literature,LIT 340
+297,109,109,Creative Writing,LIT 288
+298,109,109,British Literature,LIT 336
+299,110,110,Abnormal Psychology,PSY 202
+300,110,110,Developmental Psychology,PSY 228
+301,110,110,Cognitive Psychology,PSY 428
+302,111,111,Physics,SCI 245
+303,111,111,Biology,SCI 490
+304,111,111,Chemistry,SCI 239
+305,112,112,Anthropology,SOC 330
+306,112,112,Sociology,SOC 113
+307,112,112,Political Science,SOC 127
+308,113,113,Microeconomics,ECN 291
+309,113,113,Macroeconomics,ECN 114
+310,113,113,Econometrics,ECN 150
+311,114,114,Calculus,MTH 341
+312,114,114,Probability,MTH 488
+313,114,114,Linear Algebra,MTH 329
+314,115,115,Biology,SCI 210
+315,115,115,Chemistry,SCI 380
+316,116,116,Databases,CS 254
+317,116,116,Algorithms,CS 124
+318,117,117,Photography,ART 156
+319,117,117,Digital Media,ART 405
+320,117,117,Drawing,ART 423
+321,118,118,Child Development,EDU 414
+322,118,118,Educational Psychology,EDU 223
+323,118,118,Curriculum Design,EDU 195
+324,119,119,Accounting,BUS 340
+325,119,119,Finance,BUS 425
+326,119,119,Marketing,BUS 291
+327,120,120,Metaphysics,PHL 276
+328,120,120,Logic,PHL 475
+329,121,121,Curriculum Design,EDU 379
+330,121,121,Educational Psychology,EDU 429
+331,121,121,Child Development,EDU 498
+332,122,122,Cultural Studies,HUM 132
+333,122,122,Ethics,HUM 118
+334,122,122,History,HUM 203
+335,123,123,Sociology,SOC 363
+336,123,123,Anthropology,SOC 378
+337,123,123,Political Science,SOC 229
+338,124,124,Metaphysics,PHL 435
+339,124,124,Epistemology,PHL 239
+340,124,124,Logic,PHL 288
+341,125,125,Abnormal Psychology,PSY 273
+342,125,125,Developmental Psychology,PSY 354
+343,125,125,Cognitive Psychology,PSY 288
+344,126,126,Creative Writing,LIT 140
+345,126,126,British Literature,LIT 408
+346,127,127,Marketing,BUS 267
+347,127,127,Accounting,BUS 256
+348,127,127,Finance,BUS 408
+349,128,128,Machine Learning,CS 328
+350,128,128,Databases,CS 472
+351,128,128,Algorithms,CS 414
+352,129,129,Contract Law,LAW 443
+353,129,129,Constitutional Law,LAW 286
+354,129,129,Criminal Law,LAW 115
+355,130,130,Biology,SCI 220
+356,130,130,Physics,SCI 285
+357,130,130,Chemistry,SCI 390
+358,131,131,Biostatistics,HSC 290
+359,131,131,Physiology,HSC 490
+360,131,131,Anatomy,HSC 393
+361,132,132,Dynamics,ENG 227
+362,132,132,Thermodynamics,ENG 113
+363,132,132,Statics,ENG 355
+364,133,133,Developmental Psychology,PSY 460
+365,133,133,Abnormal Psychology,PSY 209
+366,134,134,Algorithms,CS 137
+367,134,134,Machine Learning,CS 188
+368,134,134,Databases,CS 144
+369,135,135,Cultural Studies,HUM 253
+370,135,135,Ethics,HUM 464
+371,135,135,History,HUM 285
+372,136,136,Sociology,SOC 221
+373,136,136,Political Science,SOC 113
+374,137,137,History,HUM 133
+375,137,137,Ethics,HUM 303
+376,137,137,Cultural Studies,HUM 369
+377,138,138,Biostatistics,HSC 262
+378,138,138,Anatomy,HSC 330
+379,138,138,Physiology,HSC 448
+380,139,139,Political Science,SOC 321
+381,139,139,Sociology,SOC 163
+382,139,139,Anthropology,SOC 255
+383,140,140,Developmental Psychology,PSY 365
+384,140,140,Cognitive Psychology,PSY 140
+385,140,140,Abnormal Psychology,PSY 200
+386,141,141,Econometrics,ECN 357
+387,141,141,Macroeconomics,ECN 403
+388,141,141,Microeconomics,ECN 187
+389,142,142,Biology,SCI 123
+390,142,142,Physics,SCI 433
+391,143,143,Contract Law,LAW 421
+392,143,143,Constitutional Law,LAW 428
+393,143,143,Criminal Law,LAW 347
+394,144,144,Digital Media,ART 452
+395,144,144,Photography,ART 180
+396,144,144,Drawing,ART 312
+397,145,145,Constitutional Law,LAW 260
+398,145,145,Criminal Law,LAW 475
+399,145,145,Contract Law,LAW 304
+400,146,146,Epistemology,PHL 223
+401,146,146,Logic,PHL 162
+402,146,146,Metaphysics,PHL 330
+403,147,147,Statics,ENG 296
+404,147,147,Thermodynamics,ENG 227
+405,147,147,Dynamics,ENG 267
+406,148,148,Calculus,MTH 355
+407,148,148,Linear Algebra,MTH 354
+408,148,148,Probability,MTH 146
+409,149,149,Anatomy,HSC 124
+410,149,149,Biostatistics,HSC 244
+411,149,149,Physiology,HSC 405
+412,150,150,Econometrics,ECN 320
+413,150,150,Microeconomics,ECN 235
+414,150,150,Macroeconomics,ECN 491
+415,151,151,Drawing,ART 391
+416,151,151,Digital Media,ART 285
+417,151,151,Photography,ART 137
+418,152,152,Creative Writing,LIT 165
+419,152,152,British Literature,LIT 301
+420,152,152,American Literature,LIT 273
+421,153,153,Anatomy,HSC 123
+422,153,153,Physiology,HSC 170
+423,153,153,Biostatistics,HSC 342
+424,154,154,Photography,ART 413
+425,154,154,Drawing,ART 183
+426,154,154,Digital Media,ART 415
+427,155,155,Political Science,SOC 343
+428,155,155,Anthropology,SOC 288
+429,155,155,Sociology,SOC 444
+430,156,156,Machine Learning,CS 405
+431,156,156,Databases,CS 235
+432,156,156,Algorithms,CS 469
+433,157,157,Biology,SCI 448
+434,157,157,Chemistry,SCI 116
+435,157,157,Physics,SCI 197
+436,158,158,Dynamics,ENG 311
+437,158,158,Thermodynamics,ENG 310
+438,158,158,Statics,ENG 476
+439,159,159,Epistemology,PHL 439
+440,159,159,Logic,PHL 369
+441,159,159,Metaphysics,PHL 260
+442,160,160,Educational Psychology,EDU 446
+443,160,160,Child Development,EDU 412
+444,160,160,Curriculum Design,EDU 198
+445,161,161,Contract Law,LAW 252
+446,161,161,Criminal Law,LAW 460
+447,161,161,Constitutional Law,LAW 453
+448,162,162,Physiology,HSC 247
+449,162,162,Biostatistics,HSC 393
+450,162,162,Anatomy,HSC 302
+451,163,163,Linear Algebra,MTH 465
+452,163,163,Calculus,MTH 277
+453,163,163,Probability,MTH 435
+454,164,164,Drawing,ART 387
+455,164,164,Photography,ART 170
+456,164,164,Digital Media,ART 415
+457,165,165,Cognitive Psychology,PSY 126
+458,165,165,Abnormal Psychology,PSY 311
+459,165,165,Developmental Psychology,PSY 467
+460,166,166,Econometrics,ECN 102
+461,166,166,Microeconomics,ECN 308
+462,167,167,Finance,BUS 264
+463,167,167,Accounting,BUS 430
+464,167,167,Marketing,BUS 493
+465,168,168,Machine Learning,CS 313
+466,168,168,Algorithms,CS 118
+467,168,168,Databases,CS 353
+468,169,169,American Literature,LIT 390
+469,169,169,Creative Writing,LIT 271
+470,169,169,British Literature,LIT 332
+471,170,170,Abnormal Psychology,PSY 198
+472,170,170,Developmental Psychology,PSY 269
+473,170,170,Cognitive Psychology,PSY 474
+474,171,171,Machine Learning,CS 477
+475,171,171,Algorithms,CS 251
+476,171,171,Databases,CS 189
+477,172,172,Contract Law,LAW 305
+478,172,172,Criminal Law,LAW 194
+479,172,172,Constitutional Law,LAW 344
+480,173,173,Curriculum Design,EDU 220
+481,173,173,Child Development,EDU 485
+482,173,173,Educational Psychology,EDU 268
+483,174,174,Dynamics,ENG 454
+484,174,174,Thermodynamics,ENG 131
+485,175,175,Macroeconomics,ECN 451
+486,175,175,Microeconomics,ECN 453
+487,175,175,Econometrics,ECN 427
+488,176,176,Physics,SCI 168
+489,176,176,Biology,SCI 178
+490,176,176,Chemistry,SCI 482
+491,177,177,Thermodynamics,ENG 490
+492,177,177,Dynamics,ENG 448
+493,177,177,Statics,ENG 369
+494,178,178,Anatomy,HSC 380
+495,178,178,Biostatistics,HSC 393
+496,178,178,Physiology,HSC 184
+497,179,179,American Literature,LIT 146
+498,179,179,Creative Writing,LIT 128
+499,179,179,British Literature,LIT 167
+500,180,180,Photography,ART 444
+501,180,180,Drawing,ART 470
+502,180,180,Digital Media,ART 302
+503,181,181,Finance,BUS 396
+504,181,181,Accounting,BUS 123
+505,182,182,Econometrics,ECN 135
+506,182,182,Microeconomics,ECN 116
+507,182,182,Macroeconomics,ECN 309
+508,183,183,Probability,MTH 295
+509,183,183,Linear Algebra,MTH 293
+510,183,183,Calculus,MTH 141
+511,184,184,Logic,PHL 370
+512,184,184,Epistemology,PHL 472
+513,184,184,Metaphysics,PHL 101
+514,185,185,Physiology,HSC 217
+515,185,185,Biostatistics,HSC 335
+516,185,185,Anatomy,HSC 179
+517,186,186,Educational Psychology,EDU 438
+518,186,186,Curriculum Design,EDU 414
+519,186,186,Child Development,EDU 223
+520,187,187,Biology,SCI 328
+521,187,187,Physics,SCI 225
+522,188,188,Macroeconomics,ECN 486
+523,188,188,Microeconomics,ECN 171
+524,188,188,Econometrics,ECN 219
+525,189,189,Constitutional Law,LAW 438
+526,189,189,Criminal Law,LAW 311
+527,189,189,Contract Law,LAW 240
+528,190,190,Machine Learning,CS 124
+529,190,190,Databases,CS 429
+530,190,190,Algorithms,CS 368
+531,191,191,History,HUM 292
+532,191,191,Ethics,HUM 486
+533,191,191,Cultural Studies,HUM 223
+534,192,192,Abnormal Psychology,PSY 129
+535,192,192,Cognitive Psychology,PSY 313
+536,192,192,Developmental Psychology,PSY 298
+537,193,193,Constitutional Law,LAW 330
+538,193,193,Criminal Law,LAW 147
+539,193,193,Contract Law,LAW 126
+540,194,194,Machine Learning,CS 196
+541,194,194,Algorithms,CS 345
+542,194,194,Databases,CS 270
+543,195,195,Drawing,ART 479
+544,195,195,Photography,ART 482
+545,196,196,Econometrics,ECN 222
+546,196,196,Microeconomics,ECN 497
+547,196,196,Macroeconomics,ECN 294
+548,197,197,History,HUM 362
+549,197,197,Cultural Studies,HUM 338
+550,197,197,Ethics,HUM 469
+551,198,198,Sociology,SOC 311
+552,198,198,Anthropology,SOC 388
+553,198,198,Political Science,SOC 479
+554,199,199,Marketing,BUS 251
+555,199,199,Finance,BUS 200
+556,200,200,Child Development,EDU 381
+557,200,200,Curriculum Design,EDU 231
+558,200,200,Educational Psychology,EDU 470
+559,201,201,Curriculum Design,EDU 171
+560,201,201,Child Development,EDU 194
+561,201,201,Educational Psychology,EDU 368
+562,202,202,Photography,ART 491
+563,202,202,Drawing,ART 311
+564,203,203,Sociology,SOC 211
+565,203,203,Political Science,SOC 291
+566,203,203,Anthropology,SOC 416
+567,204,204,Calculus,MTH 106
+568,204,204,Probability,MTH 371
+569,204,204,Linear Algebra,MTH 374
+570,205,205,Econometrics,ECN 191
+571,205,205,Macroeconomics,ECN 149
+572,206,206,American Literature,LIT 236
+573,206,206,British Literature,LIT 140
+574,206,206,Creative Writing,LIT 307
+575,207,207,Physics,SCI 450
+576,207,207,Biology,SCI 434
+577,207,207,Chemistry,SCI 147
+578,208,208,Criminal Law,LAW 426
+579,208,208,Contract Law,LAW 459
+580,208,208,Constitutional Law,LAW 142
+581,209,209,Biostatistics,HSC 370
+582,209,209,Physiology,HSC 217
+583,209,209,Anatomy,HSC 454
+584,210,210,Accounting,BUS 378
+585,210,210,Finance,BUS 191
+586,210,210,Marketing,BUS 108
+587,211,211,Epistemology,PHL 253
+588,211,211,Metaphysics,PHL 388
+589,211,211,Logic,PHL 390
+590,212,212,Macroeconomics,ECN 356
+591,212,212,Microeconomics,ECN 127
+592,212,212,Econometrics,ECN 323
+593,213,213,British Literature,LIT 496
+594,213,213,Creative Writing,LIT 115
+595,214,214,Dynamics,ENG 383
+596,214,214,Statics,ENG 321
+597,214,214,Thermodynamics,ENG 448
+598,215,215,Contract Law,LAW 226
+599,215,215,Criminal Law,LAW 142
+600,216,216,Developmental Psychology,PSY 262
+601,216,216,Cognitive Psychology,PSY 154
+602,216,216,Abnormal Psychology,PSY 102
+603,217,217,History,HUM 167
+604,217,217,Cultural Studies,HUM 195
+605,217,217,Ethics,HUM 329
+606,218,218,Accounting,BUS 281
+607,218,218,Finance,BUS 405
+608,219,219,Statics,ENG 298
+609,219,219,Dynamics,ENG 471
+610,219,219,Thermodynamics,ENG 392
+611,220,220,Anatomy,HSC 254
+612,220,220,Biostatistics,HSC 352
+613,220,220,Physiology,HSC 132
+614,221,221,Linear Algebra,MTH 347
+615,221,221,Probability,MTH 284
+616,221,221,Calculus,MTH 226
+617,222,222,Developmental Psychology,PSY 255
+618,222,222,Cognitive Psychology,PSY 302
+619,222,222,Abnormal Psychology,PSY 417
+620,223,223,Metaphysics,PHL 433
+621,223,223,Epistemology,PHL 253
+622,223,223,Logic,PHL 408
+623,224,224,Child Development,EDU 263
+624,224,224,Curriculum Design,EDU 476
+625,224,224,Educational Psychology,EDU 394
+626,225,225,Macroeconomics,ECN 286
+627,225,225,Econometrics,ECN 388
+628,225,225,Microeconomics,ECN 403
+629,226,226,Thermodynamics,ENG 462
+630,226,226,Dynamics,ENG 324
+631,227,227,British Literature,LIT 171
+632,227,227,Creative Writing,LIT 223
+633,228,228,Biostatistics,HSC 137
+634,228,228,Physiology,HSC 406
+635,228,228,Anatomy,HSC 398
+636,229,229,Contract Law,LAW 459
+637,229,229,Constitutional Law,LAW 155
+638,229,229,Criminal Law,LAW 436
+639,230,230,Finance,BUS 485
+640,230,230,Accounting,BUS 320
+641,230,230,Marketing,BUS 105
+642,231,231,Drawing,ART 291
+643,231,231,Photography,ART 337
+644,231,231,Digital Media,ART 276
+645,232,232,Biology,SCI 143
+646,232,232,Chemistry,SCI 473
+647,232,232,Physics,SCI 278
+648,233,233,Marketing,BUS 278
+649,233,233,Accounting,BUS 149
+650,233,233,Finance,BUS 469
+651,234,234,Constitutional Law,LAW 463
+652,234,234,Criminal Law,LAW 111
+653,234,234,Contract Law,LAW 431
+654,235,235,Machine Learning,CS 382
+655,235,235,Algorithms,CS 269
+656,235,235,Databases,CS 336
+657,236,236,Educational Psychology,EDU 427
+658,236,236,Curriculum Design,EDU 302
+659,236,236,Child Development,EDU 477
+660,237,237,Cultural Studies,HUM 102
+661,237,237,History,HUM 205
+662,237,237,Ethics,HUM 485
+663,238,238,Probability,MTH 287
+664,238,238,Calculus,MTH 200
+665,239,239,Chemistry,SCI 370
+666,239,239,Physics,SCI 405
+667,240,240,Econometrics,ECN 280
+668,240,240,Microeconomics,ECN 416
+669,240,240,Macroeconomics,ECN 444
+670,241,241,Abnormal Psychology,PSY 260
+671,241,241,Cognitive Psychology,PSY 222
+672,242,242,Biology,SCI 455
+673,242,242,Chemistry,SCI 361
+674,243,243,Econometrics,ECN 316
+675,243,243,Microeconomics,ECN 349
+676,243,243,Macroeconomics,ECN 384
+677,244,244,Anthropology,SOC 261
+678,244,244,Sociology,SOC 417
+679,244,244,Political Science,SOC 283
+680,245,245,Accounting,BUS 387
+681,245,245,Finance,BUS 309
+682,245,245,Marketing,BUS 312
+683,246,246,Anatomy,HSC 489
+684,246,246,Biostatistics,HSC 249
+685,246,246,Physiology,HSC 240
+686,247,247,Ethics,HUM 381
+687,247,247,History,HUM 393
+688,247,247,Cultural Studies,HUM 237
+689,248,248,Educational Psychology,EDU 379
+690,248,248,Child Development,EDU 317

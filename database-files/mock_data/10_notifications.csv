@@ -1,0 +1,298 @@
+notification_id,user_id,assignment_id,message,sent_at
+1,249,1009,You have an upcoming deadline for assignment #1009.,2026-04-18 11:41:08
+2,250,2434,Assignment #2434 just assigned!Reminder: Assignment #2434 is due soon!,2026-04-18 11:40:29
+3,251,157,Assignment #157 deadline approaching.,2026-04-18 11:40:18
+4,251,157,You have an upcoming deadline for assignment #157.,2026-04-18 11:40:27
+5,251,125,Assignment #125 just assigned!Reminder: Assignment #125 is due soon!,2026-04-18 11:40:45
+6,252,2325,You have an upcoming deadline for assignment #2325.,2026-04-18 11:40:19
+7,252,2324,Assignment #2324 just assigned!Reminder: Assignment #2324 is due soon!,2026-04-18 11:40:21
+8,252,2275,You have an upcoming deadline for assignment #2275.,2026-04-18 11:40:30
+9,252,2269,Assignment #2269 deadline approaching.,2026-04-18 11:40:03
+10,253,549,Assignment #549 deadline approaching.,2026-04-18 11:41:10
+11,254,460,Assignment #460 just assigned!Reminder: Assignment #460 is due soon!,2026-04-18 11:39:27
+12,254,489,You have an upcoming deadline for assignment #489.,2026-04-18 11:39:59
+13,254,463,Don't forget to submit assignment #463.,2026-04-18 11:40:13
+14,255,2443,Don't forget to submit assignment #2443.,2026-04-18 11:39:38
+15,255,2481,Don't forget to submit assignment #2481.,2026-04-18 11:39:42
+16,255,2443,You have an upcoming deadline for assignment #2443.,2026-04-18 11:39:55
+17,256,111,Assignment #111 deadline approaching.,2026-04-18 11:40:14
+18,256,165,You have an upcoming deadline for assignment #165.,2026-04-18 11:40:01
+19,256,112,You have an upcoming deadline for assignment #112.,2026-04-18 11:40:10
+20,257,449,Don't forget to submit assignment #449.,2026-04-18 11:40:17
+21,257,467,Don't forget to submit assignment #467.,2026-04-18 11:39:51
+22,258,604,Assignment #604 just assigned!Reminder: Assignment #604 is due soon!,2026-04-18 11:40:11
+23,258,566,Don't forget to submit assignment #566.,2026-04-18 11:40:55
+24,258,565,Don't forget to submit assignment #565.,2026-04-18 11:40:11
+25,258,576,Don't forget to submit assignment #576.,2026-04-18 11:41:22
+26,259,512,Assignment #512 deadline approaching.,2026-04-18 11:40:31
+27,259,503,Assignment #503 just assigned!Reminder: Assignment #503 is due soon!,2026-04-18 11:40:55
+28,259,500,You have an upcoming deadline for assignment #500.,2026-04-18 11:39:50
+29,260,753,You have an upcoming deadline for assignment #753.,2026-04-18 11:40:39
+30,260,754,Don't forget to submit assignment #754.,2026-04-18 11:41:00
+31,260,708,Assignment #708 just assigned!Reminder: Assignment #708 is due soon!,2026-04-18 11:41:02
+32,260,777,Assignment #777 deadline approaching.,2026-04-18 11:41:11
+33,260,760,Don't forget to submit assignment #760.,2026-04-18 11:39:50
+34,261,2035,Don't forget to submit assignment #2035.,2026-04-18 11:39:31
+35,261,2018,Assignment #2018 deadline approaching.,2026-04-18 11:39:59
+36,261,2039,Don't forget to submit assignment #2039.,2026-04-18 11:40:55
+37,261,2036,Assignment #2036 just assigned!Reminder: Assignment #2036 is due soon!,2026-04-18 11:39:36
+38,261,2036,Don't forget to submit assignment #2036.,2026-04-18 11:39:52
+39,262,786,Assignment #786 deadline approaching.,2026-04-18 11:40:36
+40,262,786,Assignment #786 just assigned!Reminder: Assignment #786 is due soon!,2026-04-18 11:41:21
+41,263,2080,Assignment #2080 just assigned!Reminder: Assignment #2080 is due soon!,2026-04-18 11:40:33
+42,263,2097,Assignment #2097 deadline approaching.,2026-04-18 11:41:02
+43,264,1627,You have an upcoming deadline for assignment #1627.,2026-04-18 11:41:13
+44,264,1606,Assignment #1606 deadline approaching.,2026-04-18 11:40:01
+45,264,1615,Assignment #1615 deadline approaching.,2026-04-18 11:40:29
+46,264,1626,You have an upcoming deadline for assignment #1626.,2026-04-18 11:40:32
+47,264,1620,Assignment #1620 deadline approaching.,2026-04-18 11:40:50
+48,265,103,You have an upcoming deadline for assignment #103.,2026-04-18 11:39:50
+49,265,141,Assignment #141 deadline approaching.,2026-04-18 11:40:51
+50,265,103,Don't forget to submit assignment #103.,2026-04-18 11:41:14
+51,265,140,Don't forget to submit assignment #140.,2026-04-18 11:39:36
+52,266,186,You have an upcoming deadline for assignment #186.,2026-04-18 11:39:52
+53,266,183,You have an upcoming deadline for assignment #183.,2026-04-18 11:40:05
+54,266,187,You have an upcoming deadline for assignment #187.,2026-04-18 11:40:18
+55,266,260,You have an upcoming deadline for assignment #260.,2026-04-18 11:40:49
+56,267,1063,Don't forget to submit assignment #1063.,2026-04-18 11:41:02
+57,267,1052,Don't forget to submit assignment #1052.,2026-04-18 11:40:54
+58,268,1641,Assignment #1641 deadline approaching.,2026-04-18 11:40:53
+59,268,1637,Assignment #1637 just assigned!Reminder: Assignment #1637 is due soon!,2026-04-18 11:40:40
+60,268,1606,Assignment #1606 deadline approaching.,2026-04-18 11:40:49
+61,269,1208,Assignment #1208 deadline approaching.,2026-04-18 11:40:06
+62,269,1209,You have an upcoming deadline for assignment #1209.,2026-04-18 11:39:25
+63,269,1209,Assignment #1209 deadline approaching.,2026-04-18 11:39:46
+64,269,1148,You have an upcoming deadline for assignment #1148.,2026-04-18 11:39:40
+65,269,1149,Assignment #1149 deadline approaching.,2026-04-18 11:41:04
+66,270,525,Assignment #525 just assigned!Reminder: Assignment #525 is due soon!,2026-04-18 11:40:39
+67,270,548,Don't forget to submit assignment #548.,2026-04-18 11:40:39
+68,270,523,You have an upcoming deadline for assignment #523.,2026-04-18 11:41:11
+69,270,548,Assignment #548 deadline approaching.,2026-04-18 11:39:33
+70,271,1088,Assignment #1088 deadline approaching.,2026-04-18 11:39:50
+71,271,1065,Assignment #1065 just assigned!Reminder: Assignment #1065 is due soon!,2026-04-18 11:39:26
+72,272,1271,You have an upcoming deadline for assignment #1271.,2026-04-18 11:39:59
+73,272,1270,Assignment #1270 deadline approaching.,2026-04-18 11:41:11
+74,272,1269,Assignment #1269 deadline approaching.,2026-04-18 11:41:10
+75,273,9,Don't forget to submit assignment #9.,2026-04-18 11:40:50
+76,273,82,Don't forget to submit assignment #82.,2026-04-18 11:40:44
+77,273,85,Assignment #85 just assigned!Reminder: Assignment #85 is due soon!,2026-04-18 11:41:11
+78,273,83,Assignment #83 deadline approaching.,2026-04-18 11:39:30
+79,273,83,Don't forget to submit assignment #83.,2026-04-18 11:40:51
+80,274,201,You have an upcoming deadline for assignment #201.,2026-04-18 11:40:21
+81,275,414,You have an upcoming deadline for assignment #414.,2026-04-18 11:40:00
+82,275,374,Assignment #374 just assigned!Reminder: Assignment #374 is due soon!,2026-04-18 11:40:41
+83,276,2519,Assignment #2519 just assigned!Reminder: Assignment #2519 is due soon!,2026-04-18 11:41:16
+84,277,470,Assignment #470 deadline approaching.,2026-04-18 11:39:34
+85,277,457,Don't forget to submit assignment #457.,2026-04-18 11:39:52
+86,277,442,Assignment #442 just assigned!Reminder: Assignment #442 is due soon!,2026-04-18 11:39:43
+87,277,446,You have an upcoming deadline for assignment #446.,2026-04-18 11:39:41
+88,278,1777,Assignment #1777 deadline approaching.,2026-04-18 11:41:09
+89,279,2622,Don't forget to submit assignment #2622.,2026-04-18 11:40:14
+90,279,2681,Assignment #2681 deadline approaching.,2026-04-18 11:40:15
+91,279,2622,You have an upcoming deadline for assignment #2622.,2026-04-18 11:40:02
+92,280,776,Assignment #776 deadline approaching.,2026-04-18 11:39:53
+93,280,775,You have an upcoming deadline for assignment #775.,2026-04-18 11:41:05
+94,280,773,Assignment #773 just assigned!Reminder: Assignment #773 is due soon!,2026-04-18 11:40:57
+95,280,776,Don't forget to submit assignment #776.,2026-04-18 11:40:32
+96,280,778,Don't forget to submit assignment #778.,2026-04-18 11:39:35
+97,281,2097,You have an upcoming deadline for assignment #2097.,2026-04-18 11:40:30
+98,282,1747,Don't forget to submit assignment #1747.,2026-04-18 11:40:47
+99,282,1782,You have an upcoming deadline for assignment #1782.,2026-04-18 11:40:50
+100,282,1782,Don't forget to submit assignment #1782.,2026-04-18 11:39:51
+101,283,531,You have an upcoming deadline for assignment #531.,2026-04-18 11:39:54
+102,283,528,You have an upcoming deadline for assignment #528.,2026-04-18 11:39:48
+103,283,524,Don't forget to submit assignment #524.,2026-04-18 11:39:53
+104,283,532,Assignment #532 just assigned!Reminder: Assignment #532 is due soon!,2026-04-18 11:40:17
+105,283,541,Assignment #541 deadline approaching.,2026-04-18 11:40:19
+106,284,729,Assignment #729 just assigned!Reminder: Assignment #729 is due soon!,2026-04-18 11:40:57
+107,285,2347,You have an upcoming deadline for assignment #2347.,2026-04-18 11:41:21
+108,285,2421,Assignment #2421 just assigned!Reminder: Assignment #2421 is due soon!,2026-04-18 11:41:18
+109,285,2370,Assignment #2370 deadline approaching.,2026-04-18 11:40:13
+110,286,873,Assignment #873 just assigned!Reminder: Assignment #873 is due soon!,2026-04-18 11:40:00
+111,286,872,Don't forget to submit assignment #872.,2026-04-18 11:41:18
+112,286,944,Don't forget to submit assignment #944.,2026-04-18 11:39:59
+113,286,876,Assignment #876 just assigned!Reminder: Assignment #876 is due soon!,2026-04-18 11:40:45
+114,286,916,Don't forget to submit assignment #916.,2026-04-18 11:39:34
+115,287,511,Don't forget to submit assignment #511.,2026-04-18 11:39:59
+116,287,478,You have an upcoming deadline for assignment #478.,2026-04-18 11:40:08
+117,287,477,Assignment #477 deadline approaching.,2026-04-18 11:41:13
+118,288,1549,Assignment #1549 just assigned!Reminder: Assignment #1549 is due soon!,2026-04-18 11:39:35
+119,288,1516,You have an upcoming deadline for assignment #1516.,2026-04-18 11:40:45
+120,289,2726,You have an upcoming deadline for assignment #2726.,2026-04-18 11:40:03
+121,289,2729,Assignment #2729 just assigned!Reminder: Assignment #2729 is due soon!,2026-04-18 11:39:37
+122,289,2756,Assignment #2756 just assigned!Reminder: Assignment #2756 is due soon!,2026-04-18 11:39:38
+123,289,2756,You have an upcoming deadline for assignment #2756.,2026-04-18 11:39:33
+124,289,2758,Assignment #2758 deadline approaching.,2026-04-18 11:40:12
+125,290,2380,You have an upcoming deadline for assignment #2380.,2026-04-18 11:41:19
+126,290,2384,Assignment #2384 just assigned!Reminder: Assignment #2384 is due soon!,2026-04-18 11:40:37
+127,291,1181,Don't forget to submit assignment #1181.,2026-04-18 11:40:44
+128,291,1180,You have an upcoming deadline for assignment #1180.,2026-04-18 11:39:43
+129,291,1183,Don't forget to submit assignment #1183.,2026-04-18 11:41:19
+130,291,1197,Don't forget to submit assignment #1197.,2026-04-18 11:41:00
+131,291,1182,Assignment #1182 deadline approaching.,2026-04-18 11:39:47
+132,292,1038,Don't forget to submit assignment #1038.,2026-04-18 11:41:16
+133,292,1036,Don't forget to submit assignment #1036.,2026-04-18 11:39:32
+134,292,1035,Don't forget to submit assignment #1035.,2026-04-18 11:40:39
+135,292,1015,You have an upcoming deadline for assignment #1015.,2026-04-18 11:40:54
+136,292,1036,Don't forget to submit assignment #1036.,2026-04-18 11:40:34
+137,293,518,Assignment #518 just assigned!Reminder: Assignment #518 is due soon!,2026-04-18 11:41:14
+138,293,590,Assignment #590 deadline approaching.,2026-04-18 11:40:06
+139,293,593,Don't forget to submit assignment #593.,2026-04-18 11:40:46
+140,293,591,Don't forget to submit assignment #591.,2026-04-18 11:41:23
+141,293,518,Don't forget to submit assignment #518.,2026-04-18 11:39:50
+142,294,992,Assignment #992 just assigned!Reminder: Assignment #992 is due soon!,2026-04-18 11:40:42
+143,294,994,Assignment #994 deadline approaching.,2026-04-18 11:39:30
+144,294,960,You have an upcoming deadline for assignment #960.,2026-04-18 11:41:13
+145,294,992,Assignment #992 just assigned!Reminder: Assignment #992 is due soon!,2026-04-18 11:39:29
+146,295,2674,You have an upcoming deadline for assignment #2674.,2026-04-18 11:40:46
+147,296,2294,Don't forget to submit assignment #2294.,2026-04-18 11:40:36
+148,297,71,Assignment #71 just assigned!Reminder: Assignment #71 is due soon!,2026-04-18 11:40:27
+149,297,84,Don't forget to submit assignment #84.,2026-04-18 11:39:34
+150,297,70,Assignment #70 just assigned!Reminder: Assignment #70 is due soon!,2026-04-18 11:39:25
+151,297,83,Assignment #83 just assigned!Reminder: Assignment #83 is due soon!,2026-04-18 11:39:43
+152,298,2282,Don't forget to submit assignment #2282.,2026-04-18 11:39:42
+153,298,2283,Assignment #2283 just assigned!Reminder: Assignment #2283 is due soon!,2026-04-18 11:41:00
+154,298,2264,Don't forget to submit assignment #2264.,2026-04-18 11:40:43
+155,298,2285,Don't forget to submit assignment #2285.,2026-04-18 11:41:10
+156,299,727,You have an upcoming deadline for assignment #727.,2026-04-18 11:40:45
+157,300,1091,Assignment #1091 deadline approaching.,2026-04-18 11:41:03
+158,300,1084,You have an upcoming deadline for assignment #1084.,2026-04-18 11:40:00
+159,300,1111,Assignment #1111 deadline approaching.,2026-04-18 11:40:53
+160,301,664,Don't forget to submit assignment #664.,2026-04-18 11:40:27
+161,301,650,Don't forget to submit assignment #650.,2026-04-18 11:41:01
+162,301,650,Don't forget to submit assignment #650.,2026-04-18 11:39:35
+163,301,650,Don't forget to submit assignment #650.,2026-04-18 11:41:11
+164,302,965,Assignment #965 just assigned!Reminder: Assignment #965 is due soon!,2026-04-18 11:40:02
+165,302,972,Assignment #972 deadline approaching.,2026-04-18 11:39:39
+166,302,989,Don't forget to submit assignment #989.,2026-04-18 11:40:26
+167,302,990,Don't forget to submit assignment #990.,2026-04-18 11:40:29
+168,302,974,Don't forget to submit assignment #974.,2026-04-18 11:40:01
+169,303,691,You have an upcoming deadline for assignment #691.,2026-04-18 11:41:17
+170,303,624,You have an upcoming deadline for assignment #624.,2026-04-18 11:39:55
+171,304,1059,Assignment #1059 deadline approaching.,2026-04-18 11:40:05
+172,304,1055,Assignment #1055 deadline approaching.,2026-04-18 11:40:23
+173,305,2757,Don't forget to submit assignment #2757.,2026-04-18 11:39:41
+174,306,1934,Don't forget to submit assignment #1934.,2026-04-18 11:40:36
+175,306,1949,Assignment #1949 just assigned!Reminder: Assignment #1949 is due soon!,2026-04-18 11:40:01
+176,306,1913,Assignment #1913 just assigned!Reminder: Assignment #1913 is due soon!,2026-04-18 11:41:01
+177,306,1909,You have an upcoming deadline for assignment #1909.,2026-04-18 11:40:25
+178,307,2557,Assignment #2557 just assigned!Reminder: Assignment #2557 is due soon!,2026-04-18 11:40:30
+179,307,2522,Don't forget to submit assignment #2522.,2026-04-18 11:40:22
+180,307,2553,You have an upcoming deadline for assignment #2553.,2026-04-18 11:40:24
+181,307,2519,Assignment #2519 deadline approaching.,2026-04-18 11:39:43
+182,308,147,Assignment #147 just assigned!Reminder: Assignment #147 is due soon!,2026-04-18 11:40:35
+183,308,148,Don't forget to submit assignment #148.,2026-04-18 11:40:25
+184,309,1031,Don't forget to submit assignment #1031.,2026-04-18 11:40:41
+185,310,1086,You have an upcoming deadline for assignment #1086.,2026-04-18 11:39:34
+186,310,1063,Assignment #1063 just assigned!Reminder: Assignment #1063 is due soon!,2026-04-18 11:40:37
+187,310,1101,Assignment #1101 deadline approaching.,2026-04-18 11:40:09
+188,310,1063,You have an upcoming deadline for assignment #1063.,2026-04-18 11:41:14
+189,311,2052,You have an upcoming deadline for assignment #2052.,2026-04-18 11:40:36
+190,311,1986,You have an upcoming deadline for assignment #1986.,2026-04-18 11:39:36
+191,312,1022,Assignment #1022 deadline approaching.,2026-04-18 11:40:00
+192,313,1690,Assignment #1690 deadline approaching.,2026-04-18 11:39:53
+193,313,1685,Assignment #1685 deadline approaching.,2026-04-18 11:40:36
+194,313,1689,Assignment #1689 just assigned!Reminder: Assignment #1689 is due soon!,2026-04-18 11:40:57
+195,313,1692,Assignment #1692 just assigned!Reminder: Assignment #1692 is due soon!,2026-04-18 11:40:49
+196,314,2075,You have an upcoming deadline for assignment #2075.,2026-04-18 11:39:45
+197,314,2114,Assignment #2114 deadline approaching.,2026-04-18 11:41:19
+198,314,2075,Assignment #2075 just assigned!Reminder: Assignment #2075 is due soon!,2026-04-18 11:41:21
+199,315,1897,Assignment #1897 deadline approaching.,2026-04-18 11:41:13
+200,315,1950,Assignment #1950 deadline approaching.,2026-04-18 11:39:28
+201,315,1907,Assignment #1907 just assigned!Reminder: Assignment #1907 is due soon!,2026-04-18 11:40:54
+202,315,1974,You have an upcoming deadline for assignment #1974.,2026-04-18 11:39:43
+203,315,1974,Don't forget to submit assignment #1974.,2026-04-18 11:41:07
+204,316,2031,You have an upcoming deadline for assignment #2031.,2026-04-18 11:39:42
+205,316,2010,You have an upcoming deadline for assignment #2010.,2026-04-18 11:39:30
+206,316,2032,Don't forget to submit assignment #2032.,2026-04-18 11:40:37
+207,316,2002,You have an upcoming deadline for assignment #2002.,2026-04-18 11:40:11
+208,316,2001,Don't forget to submit assignment #2001.,2026-04-18 11:39:37
+209,317,602,Don't forget to submit assignment #602.,2026-04-18 11:41:15
+210,318,1919,Assignment #1919 just assigned!Reminder: Assignment #1919 is due soon!,2026-04-18 11:40:56
+211,318,1918,You have an upcoming deadline for assignment #1918.,2026-04-18 11:40:15
+212,318,1918,Don't forget to submit assignment #1918.,2026-04-18 11:40:32
+213,318,1918,Don't forget to submit assignment #1918.,2026-04-18 11:39:58
+214,319,1048,Don't forget to submit assignment #1048.,2026-04-18 11:39:32
+215,319,1097,You have an upcoming deadline for assignment #1097.,2026-04-18 11:40:30
+216,319,1082,You have an upcoming deadline for assignment #1082.,2026-04-18 11:41:00
+217,320,572,You have an upcoming deadline for assignment #572.,2026-04-18 11:40:21
+218,320,583,You have an upcoming deadline for assignment #583.,2026-04-18 11:40:16
+219,320,586,Assignment #586 just assigned!Reminder: Assignment #586 is due soon!,2026-04-18 11:40:45
+220,320,585,You have an upcoming deadline for assignment #585.,2026-04-18 11:40:29
+221,320,572,You have an upcoming deadline for assignment #572.,2026-04-18 11:40:14
+222,321,1266,Don't forget to submit assignment #1266.,2026-04-18 11:40:47
+223,321,1267,You have an upcoming deadline for assignment #1267.,2026-04-18 11:41:16
+224,322,1472,Assignment #1472 just assigned!Reminder: Assignment #1472 is due soon!,2026-04-18 11:40:41
+225,322,1469,Assignment #1469 deadline approaching.,2026-04-18 11:40:17
+226,322,1473,You have an upcoming deadline for assignment #1473.,2026-04-18 11:39:47
+227,322,1472,You have an upcoming deadline for assignment #1472.,2026-04-18 11:41:19
+228,323,1959,Don't forget to submit assignment #1959.,2026-04-18 11:39:40
+229,323,1946,Don't forget to submit assignment #1946.,2026-04-18 11:41:09
+230,323,1955,Assignment #1955 just assigned!Reminder: Assignment #1955 is due soon!,2026-04-18 11:40:01
+231,324,193,Assignment #193 deadline approaching.,2026-04-18 11:40:57
+232,324,191,Assignment #191 just assigned!Reminder: Assignment #191 is due soon!,2026-04-18 11:40:24
+233,324,232,Assignment #232 deadline approaching.,2026-04-18 11:41:00
+234,324,190,Don't forget to submit assignment #190.,2026-04-18 11:40:30
+235,325,641,Assignment #641 just assigned!Reminder: Assignment #641 is due soon!,2026-04-18 11:39:35
+236,326,165,Assignment #165 just assigned!Reminder: Assignment #165 is due soon!,2026-04-18 11:41:18
+237,326,122,Assignment #122 just assigned!Reminder: Assignment #122 is due soon!,2026-04-18 11:40:47
+238,327,1243,You have an upcoming deadline for assignment #1243.,2026-04-18 11:41:11
+239,327,1231,Assignment #1231 deadline approaching.,2026-04-18 11:39:32
+240,327,1289,You have an upcoming deadline for assignment #1289.,2026-04-18 11:40:51
+241,328,2008,Assignment #2008 just assigned!Reminder: Assignment #2008 is due soon!,2026-04-18 11:40:28
+242,328,2037,Assignment #2037 just assigned!Reminder: Assignment #2037 is due soon!,2026-04-18 11:41:18
+243,328,2040,You have an upcoming deadline for assignment #2040.,2026-04-18 11:40:06
+244,329,640,You have an upcoming deadline for assignment #640.,2026-04-18 11:40:36
+245,329,619,Assignment #619 deadline approaching.,2026-04-18 11:39:46
+246,329,641,You have an upcoming deadline for assignment #641.,2026-04-18 11:39:30
+247,329,640,You have an upcoming deadline for assignment #640.,2026-04-18 11:40:06
+248,329,619,You have an upcoming deadline for assignment #619.,2026-04-18 11:39:38
+249,330,2601,Assignment #2601 deadline approaching.,2026-04-18 11:40:14
+250,330,2570,You have an upcoming deadline for assignment #2570.,2026-04-18 11:39:44
+251,330,2583,You have an upcoming deadline for assignment #2583.,2026-04-18 11:41:05
+252,330,2598,You have an upcoming deadline for assignment #2598.,2026-04-18 11:41:12
+253,330,2569,Assignment #2569 deadline approaching.,2026-04-18 11:40:03
+254,331,692,Assignment #692 just assigned!Reminder: Assignment #692 is due soon!,2026-04-18 11:39:43
+255,331,659,Don't forget to submit assignment #659.,2026-04-18 11:41:00
+256,331,658,Assignment #658 deadline approaching.,2026-04-18 11:40:25
+257,332,170,Don't forget to submit assignment #170.,2026-04-18 11:39:28
+258,332,135,You have an upcoming deadline for assignment #135.,2026-04-18 11:39:30
+259,333,1256,You have an upcoming deadline for assignment #1256.,2026-04-18 11:40:38
+260,333,1256,Don't forget to submit assignment #1256.,2026-04-18 11:40:14
+261,333,1254,You have an upcoming deadline for assignment #1254.,2026-04-18 11:39:27
+262,334,1936,Assignment #1936 deadline approaching.,2026-04-18 11:40:08
+263,335,1708,You have an upcoming deadline for assignment #1708.,2026-04-18 11:40:15
+264,335,1696,Assignment #1696 deadline approaching.,2026-04-18 11:39:27
+265,336,2533,Assignment #2533 deadline approaching.,2026-04-18 11:41:06
+266,336,2532,You have an upcoming deadline for assignment #2532.,2026-04-18 11:40:25
+267,337,1281,Assignment #1281 deadline approaching.,2026-04-18 11:40:42
+268,338,2406,Don't forget to submit assignment #2406.,2026-04-18 11:40:35
+269,338,2362,Don't forget to submit assignment #2362.,2026-04-18 11:40:05
+270,338,2360,You have an upcoming deadline for assignment #2360.,2026-04-18 11:41:24
+271,339,1807,Assignment #1807 deadline approaching.,2026-04-18 11:40:21
+272,339,1826,Assignment #1826 just assigned!Reminder: Assignment #1826 is due soon!,2026-04-18 11:41:14
+273,340,251,Assignment #251 deadline approaching.,2026-04-18 11:41:14
+274,340,216,Assignment #216 deadline approaching.,2026-04-18 11:39:40
+275,340,251,You have an upcoming deadline for assignment #251.,2026-04-18 11:39:30
+276,341,904,You have an upcoming deadline for assignment #904.,2026-04-18 11:39:58
+277,341,918,Don't forget to submit assignment #918.,2026-04-18 11:39:50
+278,341,904,Assignment #904 deadline approaching.,2026-04-18 11:39:27
+279,342,404,Assignment #404 deadline approaching.,2026-04-18 11:40:27
+280,342,402,Don't forget to submit assignment #402.,2026-04-18 11:40:17
+281,342,369,Assignment #369 deadline approaching.,2026-04-18 11:40:30
+282,343,2066,Assignment #2066 just assigned!Reminder: Assignment #2066 is due soon!,2026-04-18 11:40:17
+283,344,238,Don't forget to submit assignment #238.,2026-04-18 11:41:16
+284,344,238,Don't forget to submit assignment #238.,2026-04-18 11:40:11
+285,344,231,Assignment #231 deadline approaching.,2026-04-18 11:39:44
+286,344,238,You have an upcoming deadline for assignment #238.,2026-04-18 11:41:09
+287,345,1542,Assignment #1542 deadline approaching.,2026-04-18 11:40:27
+288,345,1545,Assignment #1545 deadline approaching.,2026-04-18 11:39:55
+289,345,1497,Don't forget to submit assignment #1497.,2026-04-18 11:39:38
+290,346,517,Assignment #517 just assigned!Reminder: Assignment #517 is due soon!,2026-04-18 11:39:52
+291,346,520,Assignment #520 deadline approaching.,2026-04-18 11:39:48
+292,347,2477,Don't forget to submit assignment #2477.,2026-04-18 11:40:31
+293,347,2479,Don't forget to submit assignment #2479.,2026-04-18 11:39:31
+294,347,2480,Assignment #2480 deadline approaching.,2026-04-18 11:39:46
+295,347,2442,Don't forget to submit assignment #2442.,2026-04-18 11:41:15
+296,347,2450,Assignment #2450 just assigned!Reminder: Assignment #2450 is due soon!,2026-04-18 11:39:32
+297,348,2732,Don't forget to submit assignment #2732.,2026-04-18 11:40:22
