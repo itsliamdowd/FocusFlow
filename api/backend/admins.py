@@ -52,7 +52,9 @@ def admin_log(log_id):
     if not updates:
         return jsonify({'error': 'No valid fields to update'}), 400
     params.append(log_id)
-    execute('UPDATE activity_logs SET ' + ', '.join(updates) + ' WHERE log_id = %s', tuple(params), commit=True)
+    rowcount = execute('UPDATE activity_logs SET ' + ', '.join(updates) + ' WHERE log_id = %s', tuple(params), commit=True)
+    if rowcount == 0:
+        return jsonify({'error': 'Log not found'}), 404
     return jsonify({'message': 'Log updated'}), 200
 
 
@@ -75,7 +77,9 @@ def admin_logs_duplicates():
     log_id = request.args.get('log_id') or (request.get_json() or {}).get('log_id')
     if not log_id:
         return jsonify({'error': 'log_id is required to delete duplicate'}), 400
-    execute('DELETE FROM activity_logs WHERE log_id = %s', (log_id,), commit=True)
+    rowcount = execute('DELETE FROM activity_logs WHERE log_id = %s', (log_id,), commit=True)
+    if rowcount == 0:
+        return jsonify({'error': 'Duplicate log not found'}), 404
     return jsonify({'message': 'Duplicate deleted'}), 200
 
 
@@ -102,7 +106,9 @@ def admin_categories():
     category = request.args.get('category') or (request.get_json() or {}).get('category')
     if not category:
         return jsonify({'error': 'category is required to delete logs'}), 400
-    execute('DELETE FROM activity_logs WHERE category = %s', (category,), commit=True)
+    rowcount = execute('DELETE FROM activity_logs WHERE category = %s', (category,), commit=True)
+    if rowcount == 0:
+        return jsonify({'error': 'No logs found for category'}), 404
     return jsonify({'message': 'Logs deleted'}), 200
 
 

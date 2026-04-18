@@ -1,6 +1,6 @@
 from contextlib import contextmanager
 from functools import wraps
-from flask import jsonify
+from flask import jsonify, current_app
 from backend.db_connection import get_db
 from mysql.connector import Error
 
@@ -47,5 +47,6 @@ def safe_db(fn):
         try:
             return fn(*args, **kwargs)
         except Error as e:
-            return jsonify({'error': str(e)}), 500
+            current_app.logger.exception('Database operation failed')
+            return jsonify({'error': 'Database operation failed'}), 500
     return wrapper

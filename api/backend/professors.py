@@ -45,10 +45,14 @@ def professor_course(course_id):
         if not updates:
             return jsonify({'error': 'No valid fields to update'}), 400
         params.append(course_id)
-        execute('UPDATE courses SET ' + ', '.join(updates) + ' WHERE course_id = %s', tuple(params), commit=True)
+        rowcount = execute('UPDATE courses SET ' + ', '.join(updates) + ' WHERE course_id = %s', tuple(params), commit=True)
+        if rowcount == 0:
+            return jsonify({'error': 'Course not found'}), 404
         return jsonify({'message': 'Course updated'}), 200
 
-    execute('DELETE FROM courses WHERE course_id = %s', (course_id,), commit=True)
+    rowcount = execute('DELETE FROM courses WHERE course_id = %s', (course_id,), commit=True)
+    if rowcount == 0:
+        return jsonify({'error': 'Course not found'}), 404
     return jsonify({'message': 'Course deleted'}), 200
 
 
@@ -77,7 +81,9 @@ def professor_course_students(course_id):
     user_id = request.args.get('user_id') or (request.get_json() or {}).get('user_id')
     if not user_id:
         return jsonify({'error': 'user_id is required to remove student'}), 400
-    execute('DELETE FROM enrollments WHERE course_id = %s AND user_id = %s', (course_id, user_id), commit=True)
+    rowcount = execute('DELETE FROM enrollments WHERE course_id = %s AND user_id = %s', (course_id, user_id), commit=True)
+    if rowcount == 0:
+        return jsonify({'error': 'Enrollment not found'}), 404
     return jsonify({'message': 'Student removed'}), 200
 
 
@@ -117,10 +123,14 @@ def professor_assignment(assignment_id):
         if not updates:
             return jsonify({'error': 'No valid fields to update'}), 400
         params.append(assignment_id)
-        execute('UPDATE assignments SET ' + ', '.join(updates) + ' WHERE assignment_id = %s', tuple(params), commit=True)
+        rowcount = execute('UPDATE assignments SET ' + ', '.join(updates) + ' WHERE assignment_id = %s', tuple(params), commit=True)
+        if rowcount == 0:
+            return jsonify({'error': 'Assignment not found'}), 404
         return jsonify({'message': 'Assignment updated'}), 200
 
-    execute('DELETE FROM assignments WHERE assignment_id = %s', (assignment_id,), commit=True)
+    rowcount = execute('DELETE FROM assignments WHERE assignment_id = %s', (assignment_id,), commit=True)
+    if rowcount == 0:
+        return jsonify({'error': 'Assignment not found'}), 404
     return jsonify({'message': 'Assignment deleted'}), 200
 
 

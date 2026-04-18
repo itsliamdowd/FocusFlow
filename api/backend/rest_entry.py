@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask, request
 from dotenv import load_dotenv
 import os
 import logging
 
 from backend.db_connection import init_app as init_db
+from backend.auth import enforce_api_access
 from backend.simple.simple_routes import simple_routes
 from backend.ngos.ngo_routes import ngos
 from backend.students import student_bp
@@ -25,12 +26,24 @@ def create_app():
     # Secret key used by Flask for securely signing session cookies.
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
+    def required_env(name, cast=str):
+        value = os.getenv(name)
+        if value is None:
+            raise RuntimeError(f"Missing required environment variable: {name}")
+        value = value.strip() if isinstance(value, str) else value
+        if value == "":
+            raise RuntimeError(f"Environment variable {name} cannot be empty")
+        try:
+            return cast(value)
+        except (TypeError, ValueError) as exc:
+            raise RuntimeError(f"Invalid value for {name}: {value}") from exc
+
     # Database connection settings — values come from the .env file.
-    app.config["MYSQL_DATABASE_USER"] = os.getenv("DB_USER").strip()
-    app.config["MYSQL_DATABASE_PASSWORD"] = os.getenv("MYSQL_ROOT_PASSWORD").strip()
-    app.config["MYSQL_DATABASE_HOST"] = os.getenv("DB_HOST").strip()
-    app.config["MYSQL_DATABASE_PORT"] = int(os.getenv("DB_PORT").strip())
-    app.config["MYSQL_DATABASE_DB"] = os.getenv("DB_NAME").strip()
+    app.config["MYSQL_DATABASE_USER"] = required_env("DB_USER")
+    app.config["MYSQL_DATABASE_PASSWORD"] = required_env("MYSQL_ROOT_PASSWORD")
+    app.config["MYSQL_DATABASE_HOST"] = required_env("DB_HOST")
+    app.config["MYSQL_DATABASE_PORT"] = required_env("DB_PORT", cast=int)
+    app.config["MYSQL_DATABASE_DB"] = required_env("DB_NAME")
 
     # Register the cleanup hook for the database connection.
     app.logger.info("create_app(): initializing database connection")
@@ -45,5 +58,32 @@ def create_app():
     app.register_blueprint(professor_bp)
     app.register_blueprint(analyst_bp)
     app.register_blueprint(admin_bp)
+
+    @app.before_request
+    def protect_api_routes():
+        if not app.config.get("ENABLE_API_AUTH", True):
+            return None
+        if os.getenv("DISABLE_API_AUTH", "false").strip().lower() in {"1", "true", "yes"}:
+            return None
+        if os.getenv("FLASK_ENV", "").strip().lower() == "development":
+            return None
+        if os.getenv("ENV", "").strip().lower() == "development":
+            return None
+
+        path = request.path
+
+        if path in {"/", "/playlist", "/niceMessage", "/message", "/data"} or path.startswith("/prediction/"):
+            return None
+        if path.startswith("/student"):
+            return enforce_api_access({"student", "admin"})
+        if path.startswith("/professor"):
+            return enforce_api_access({"professor", "admin"})
+        if path.startswith("/analyst"):
+            return enforce_api_access({"analyst", "admin"})
+        if path.startswith("/admin"):
+            return enforce_api_access({"admin"})
+        if path.startswith("/ngo"):
+            return enforce_api_access({"ngo", "admin", "analyst"})
+        return None
 
     return app

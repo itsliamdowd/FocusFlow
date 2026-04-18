@@ -41,7 +41,7 @@ def get_all_ngos():
         return jsonify(ngo_list), 200
     except Error as e:
         current_app.logger.error(f'Database error in get_all_ngos: {e}')
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "Database operation failed"}), 500
     finally:
         cursor.close()
 
@@ -67,7 +67,8 @@ def get_ngo(ngo_id):
 
         return jsonify(ngo), 200
     except Error as e:
-        return jsonify({"error": str(e)}), 500
+        current_app.logger.error(f'Database error in get_ngo: {e}')
+        return jsonify({"error": "Database operation failed"}), 500
     finally:
         cursor.close()
 
@@ -79,7 +80,11 @@ def get_ngo(ngo_id):
 def create_ngo():
     cursor = get_db().cursor(dictionary=True)
     try:
-        data = request.get_json()
+        if not request.is_json:
+            return jsonify({"error": "Request body must be JSON"}), 400
+        data = request.get_json(silent=True)
+        if not isinstance(data, dict):
+            return jsonify({"error": "Invalid JSON body"}), 400
 
         required_fields = ["Name", "Country", "Founding_Year", "Focus_Area", "Website"]
         for field in required_fields:
@@ -101,7 +106,8 @@ def create_ngo():
         get_db().commit()
         return jsonify({"message": "NGO created successfully", "ngo_id": cursor.lastrowid}), 201
     except Error as e:
-        return jsonify({"error": str(e)}), 500
+        current_app.logger.error(f'Database error in create_ngo: {e}')
+        return jsonify({"error": "Database operation failed"}), 500
     finally:
         cursor.close()
 
@@ -113,7 +119,11 @@ def create_ngo():
 def update_ngo(ngo_id):
     cursor = get_db().cursor(dictionary=True)
     try:
-        data = request.get_json()
+        if not request.is_json:
+            return jsonify({"error": "Request body must be JSON"}), 400
+        data = request.get_json(silent=True)
+        if not isinstance(data, dict):
+            return jsonify({"error": "Invalid JSON body"}), 400
 
         cursor.execute("SELECT NGO_ID FROM WorldNGOs WHERE NGO_ID = %s", (ngo_id,))
         if not cursor.fetchone():
@@ -134,7 +144,8 @@ def update_ngo(ngo_id):
 
         return jsonify({"message": "NGO updated successfully"}), 200
     except Error as e:
-        return jsonify({"error": str(e)}), 500
+        current_app.logger.error(f'Database error in update_ngo: {e}')
+        return jsonify({"error": "Database operation failed"}), 500
     finally:
         cursor.close()
 
@@ -152,7 +163,8 @@ def get_ngo_projects(ngo_id):
         cursor.execute("SELECT * FROM Projects WHERE NGO_ID = %s", (ngo_id,))
         return jsonify(cursor.fetchall()), 200
     except Error as e:
-        return jsonify({"error": str(e)}), 500
+        current_app.logger.error(f'Database error in get_ngo_projects: {e}')
+        return jsonify({"error": "Database operation failed"}), 500
     finally:
         cursor.close()
 
@@ -170,6 +182,7 @@ def get_ngo_donors(ngo_id):
         cursor.execute("SELECT * FROM Donors WHERE NGO_ID = %s", (ngo_id,))
         return jsonify(cursor.fetchall()), 200
     except Error as e:
-        return jsonify({"error": str(e)}), 500
+        current_app.logger.error(f'Database error in get_ngo_donors: {e}')
+        return jsonify({"error": "Database operation failed"}), 500
     finally:
         cursor.close()
