@@ -136,3 +136,12 @@ def professor_course_distribution(course_id):
            GROUP BY u.user_id, u.first_name, u.last_name''',
         (course_id,)
     )}), 200
+
+
+@professor_bp.route('/users', methods=['GET'])
+@safe_db
+def get_professors():
+    return jsonify({'professors': query(
+        'SELECT user_id, first_name, last_name, email FROM users WHERE role = %s',
+        ('professor',)
+    )}), 200

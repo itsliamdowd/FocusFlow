@@ -4,29 +4,4 @@ institution_id,name,type
 3,MIT,university
 4,Harvard University,university
 5,Tufts University,university
-6,Stanford University,university
-7,Yale University,university
-8,Columbia University,university
-9,Duke University,university
-10,Georgetown University,university
-11,Princeton University,university
-12,Brown University,university
-13,Cornell University,university
-14,University of Pennsylvania,university
-15,NYU,university
-16,UCLA,university
-17,UC Berkeley,university
-18,University of Michigan,university
-19,University of Chicago,university
-20,Northwestern University,university
-21,Carnegie Mellon University,university
-22,Johns Hopkins University,university
-23,Vanderbilt University,university
-24,Rice University,university
-25,Emory University,university
-26,University of Virginia,university
-27,University of Notre Dame,university
-28,Washington University in St. Louis,university
-29,Georgia Tech,university
-30,University of Southern California,university
-31,FocusFlow Inc.,company
+6,FocusFlow Inc.,company

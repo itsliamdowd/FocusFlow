@@ -8,7 +8,7 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout='wide')
 SideBarLinks()
 
-BASE_URL = 'http://api:4000/professor'
+BASE_URL = 'http://web-api:4000/professor'
 professor_id = st.session_state.get('user_id', 1)
 
 st.title('Manage Assignments')
