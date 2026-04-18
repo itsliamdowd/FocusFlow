@@ -98,6 +98,7 @@ def SideBarLinks(show_home=False):
         if st.session_state["role"] == "student":
             student_home_nav()
             tasks_viz_nav()
+            timer_nav()
             student_analytics_nav()
 
         if st.session_state["role"] == "professor":

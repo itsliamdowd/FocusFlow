@@ -55,10 +55,13 @@ if st.button("Act as Maya, a Student.",
     logger.info("Logging in as Student Persona")
     st.switch_page('pages/00_Student_Home.py')
 
-if st.button('Log in as a Professor', type='primary', use_container_width=True):
+if st.button('Act as Dr. Smith a Professor', type='primary', use_container_width=True):
+    st.session_state['authenticated'] = True
+    st.session_state['role'] = 'professor'
+    st.session_state['first_name'] = 'Dr. Smith'
     st.switch_page('pages/09_Professor_Login.py')
 
-if st.button('Act as System Administrator',
+if st.button('Act as Jimmy, a System Administrator',
              type='primary',
              use_container_width=True):
     st.session_state['authenticated'] = True
@@ -66,7 +69,7 @@ if st.button('Act as System Administrator',
     st.session_state['first_name'] = 'Jimmy'
     st.switch_page('pages/20_Admin_Home.py')
 
-if st.button('Act as a Data Analyst.',
+if st.button('Act as James, a Data Analyst.',
              type='primary',
              use_container_width=True):
     st.session_state['authenticated'] = True
