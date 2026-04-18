@@ -3,6 +3,7 @@ logger = logging.getLogger(__name__)
 
 import streamlit as st
 import requests
+import pandas as pd
 from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide')
@@ -11,7 +12,7 @@ SideBarLinks()
 BASE_URL = 'http://api:4000/professor'
 professor_id = st.session_state.get('user_id', 1)
 
-st.title('Professor Student Roster')
+st.title('Student Roster')
 
 response = requests.get(f'{BASE_URL}/courses', params={'professor_id': professor_id})
 if response.status_code != 200:
@@ -23,12 +24,12 @@ if not courses:
     st.info('You have no courses yet. Create one in the Manage My Courses page first.')
     st.stop()
 
-course_options = [f"{course['course_code']} — {course['title']} (ID {course['course_id']})" for course in courses]
+course_options = [f"{course['course_code']} — {course['title']}" for course in courses]
 selected_index = st.selectbox('Select a course', list(range(len(course_options))), format_func=lambda i: course_options[i], key='professor_roster_course_index')
 selected_course = courses[selected_index]
 selected_course_id = selected_course['course_id']
 
-st.subheader(f"Roster for {selected_course['course_code']} — {selected_course['title']}")
+st.subheader(f"{selected_course['course_code']} — {selected_course['title']}")
 
 students_response = requests.get(f'{BASE_URL}/courses/{selected_course_id}/students')
 if students_response.status_code != 200:
@@ -43,7 +44,7 @@ else:
         cols = st.columns([5, 3, 2])
         cols[0].write(f"**{student['first_name']} {student['last_name']}**")
         cols[0].write(student['email'])
-        cols[1].write(f"Total time logged: {student['total_time_logged']} sec")
+        cols[1].write(f"Total time logged: {round(int(student['total_time_logged']) / 60, 1)} min")
         if cols[2].button('Remove', key=f"remove_{selected_course_id}_{student['user_id']}"):
             delete_response = requests.delete(
                 f'{BASE_URL}/courses/{selected_course_id}/students',
@@ -51,9 +52,26 @@ else:
             )
             if delete_response.status_code == 200:
                 st.success('Student removed successfully.')
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error('Failed to remove student.')
+
+    st.divider()
+    st.subheader('Time Distribution')
+
+    dist_response = requests.get(f'{BASE_URL}/courses/{selected_course_id}/distribution')
+    if dist_response.status_code == 200:
+        dist_data = dist_response.json().get('distribution', [])
+        if dist_data:
+            df = pd.DataFrame(dist_data)
+            df['name'] = df['first_name'] + ' ' + df['last_name']
+            df['minutes'] = (pd.to_numeric(df['total_time'], errors='coerce').fillna(0) / 60).round(1)
+            df = df[['name', 'minutes']].set_index('name')
+            st.bar_chart(df, y='minutes', y_label='Minutes Logged', x_label='Student')
+        else:
+            st.info('No time data logged yet for this course.')
+    else:
+        st.error('Could not load distribution data.')
 
 st.divider()
 with st.expander('Add a student to this course'):
@@ -65,6 +83,6 @@ with st.expander('Add a student to this course'):
         )
         if add_response.status_code == 201:
             st.success('Student added successfully.')
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error('Failed to add student. Please verify the user ID and try again.')

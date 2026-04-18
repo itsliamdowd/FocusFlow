@@ -57,7 +57,7 @@ for assignment in assignments:
                 delete_response = requests.delete(f"{BASE_URL}/assignments/{assignment['assignment_id']}")
                 if delete_response.status_code == 200:
                     st.success('Assignment deleted successfully.')
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error(delete_response.json().get('error', 'Failed to delete assignment.'))
             except requests.exceptions.RequestException as exc:
@@ -87,7 +87,7 @@ with st.form('new_assignment_form'):
                 create_response = requests.post(f'{BASE_URL}/courses/{selected_course_id}/assignments', json=payload)
                 if create_response.status_code == 201:
                     st.success('Assignment created successfully.')
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error(create_response.json().get('error', 'Failed to create assignment.'))
             except requests.exceptions.RequestException as exc:
