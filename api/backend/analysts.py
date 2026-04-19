@@ -57,19 +57,31 @@ def analyst_activity_log(log_id):
 @analyst_bp.route('/correlations', methods=['GET'])
 @safe_db
 def analyst_correlations():
-    """Get user correlations with total activity minutes and average productivity scores."""
+    """Get student correlations with study minutes and average productivity scores."""
     institution_id = request.args.get('institution_id')
-    sql = '''SELECT u.user_id, u.first_name, u.last_name,
-               COALESCE(SUM(al.duration),0) AS total_minutes,
-               COALESCE(AVG(ps.score),0) AS avg_productivity
-               FROM users u
-               LEFT JOIN activity_logs al ON u.user_id = al.user_id
-               LEFT JOIN productivity_scores ps ON u.user_id = ps.user_id'''
     params = []
+    student_filter = "u.role = 'student'"
     if institution_id:
-        sql += ' WHERE u.institution_id = %s'
+        student_filter += ' AND u.institution_id = %s'
         params.append(institution_id)
-    sql += ' GROUP BY u.user_id, u.first_name, u.last_name'
+
+    sql = f'''SELECT u.user_id, u.first_name, u.last_name,
+               COALESCE(st.total_minutes, 0) AS total_minutes,
+               COALESCE(prod.avg_productivity, 0) AS avg_productivity
+               FROM users u
+               LEFT JOIN (
+                   SELECT user_id, SUM(duration) AS total_minutes
+                   FROM activity_logs
+                   WHERE archived = FALSE
+                   GROUP BY user_id
+               ) st ON st.user_id = u.user_id
+               LEFT JOIN (
+                   SELECT user_id, AVG(score) AS avg_productivity
+                   FROM productivity_scores
+                   GROUP BY user_id
+               ) prod ON prod.user_id = u.user_id
+               WHERE {student_filter}
+               ORDER BY u.user_id'''
 
     return jsonify({'correlations': query(sql, tuple(params))}), 200
 

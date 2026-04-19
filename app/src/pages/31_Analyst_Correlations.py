@@ -54,8 +54,16 @@ if not correlations:
 else:
     df = pd.DataFrame(correlations)
 
+    # Normalize study-time naming in case backend aliases change.
+    if "total_minutes" not in df.columns:
+        for alt_col in ["study_minutes", "total_duration", "duration"]:
+            if alt_col in df.columns:
+                df["total_minutes"] = df[alt_col]
+                break
+
     if "total_minutes" in df.columns:
         df["total_minutes"] = pd.to_numeric(df["total_minutes"], errors="coerce").fillna(0)
+        df["study_hours"] = (df["total_minutes"] / 60.0).round(2)
 
     if "avg_productivity" in df.columns:
         df["avg_productivity"] = pd.to_numeric(df["avg_productivity"], errors="coerce").fillna(0)
@@ -93,6 +101,7 @@ else:
             "first_name",
             "last_name",
             "total_minutes",
+            "study_hours",
             "avg_productivity"
         ] if col in df.columns
     ]
