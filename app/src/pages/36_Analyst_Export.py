@@ -1,9 +1,11 @@
 import logging
 logger = logging.getLogger(__name__)
 
+import csv
+from io import StringIO
+
 import requests
 import streamlit as st
-from modules.api_client import get_api_base_url
 from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide')
@@ -11,19 +13,29 @@ st.set_page_config(layout='wide')
 SideBarLinks()
 
 st.title('Export Student Activity Data')
-st.write('Prepare and export student activity datasets for downstream reporting and analysis.')
+st.write('Download filtered activity data for reporting and analysis.')
 
-if st.button('Load Data', type='primary'):
+if st.button('Export Data', type='primary'):
 	try:
-		base_url = get_api_base_url()
-		response = requests.get(f'{base_url}/analyst/export', timeout=10)
+		response = requests.get('http://localhost:4000/analyst/export', timeout=10)
 		response.raise_for_status()
-		payload = response.json()
-		rows = payload.get('export', []) if isinstance(payload, dict) else []
-		if isinstance(rows, list):
-			st.dataframe(rows, use_container_width=True)
+		rows = response.json()
+		st.dataframe(rows, use_container_width=True)
+
+		csv_buffer = StringIO()
+		if rows and isinstance(rows, list) and isinstance(rows[0], dict):
+			writer = csv.DictWriter(csv_buffer, fieldnames=rows[0].keys())
+			writer.writeheader()
+			writer.writerows(rows)
 		else:
-			st.warning('Unexpected response format returned by the API.')
+			csv_buffer.write('No data returned\n')
+
+		st.download_button(
+			label='Download CSV',
+			data=csv_buffer.getvalue(),
+			file_name='student_activity_export.csv',
+			mime='text/csv',
+		)
 	except requests.RequestException as exc:
 		logger.exception('Failed to fetch export activity data')
 		st.error(f'Could not load export data: {exc}')
