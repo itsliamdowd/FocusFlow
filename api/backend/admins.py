@@ -121,3 +121,11 @@ def admin_users():
            LEFT JOIN users u ON i.institution_id = u.institution_id
            GROUP BY i.institution_id, i.name'''
     )}), 200
+
+@admin_bp.route('/users', methods=['GET'])
+@safe_db
+def get_admins():
+    return jsonify({'admins': query(
+        'SELECT user_id, first_name, last_name, email, institution_id FROM users WHERE role = %s',
+        ('admin',)
+    )}), 200

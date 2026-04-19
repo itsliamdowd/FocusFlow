@@ -209,3 +209,15 @@ def student_activity():
            ORDER BY DATE(logged_at) DESC''',
         (user_id,)
     )}), 200
+
+@student_bp.route('/users', methods=['GET'])
+@safe_db
+def get_students():
+    return jsonify({'students': query(
+        '''
+        SELECT user_id, first_name, last_name, email, institution_id, major, year
+        FROM users
+        WHERE role = %s
+        ''',
+        ('student',)
+    )}), 200

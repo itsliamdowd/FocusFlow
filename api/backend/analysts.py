@@ -114,3 +114,11 @@ def analyst_shared():
            WHERE al.archived = FALSE
            GROUP BY u.institution_id'''
     )}), 200
+
+@analyst_bp.route('/users', methods=['GET'])
+@safe_db
+def get_analysts():
+    return jsonify({'analysts': query(
+        'SELECT user_id, first_name, last_name, email, institution_id FROM users WHERE role = %s',
+        ('analyst',)
+    )}), 200
