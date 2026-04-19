@@ -1,6 +1,7 @@
 import logging
 logger = logging.getLogger(__name__)
 
+import pandas as pd
 import requests
 import streamlit as st
 from modules.api_client import get_api_base_url
@@ -32,13 +33,14 @@ if st.button('Analyze', type='primary'):
 			st.info('No category activity found for this user.')
 		else:
 			st.caption(f'Showing breakdown for User ID {int(user_id)}.')
-			st.dataframe(rows, use_container_width=True)
-			chart_data = {
-				row['category']: row['total_minutes']
-				for row in rows
-				if 'category' in row and 'total_minutes' in row
-			}
-			st.bar_chart(chart_data)
+			summary_df = pd.DataFrame(rows)
+			if 'category' in summary_df.columns and 'total_minutes' in summary_df.columns:
+				summary_df = summary_df[['category', 'total_minutes']].copy()
+				summary_df['total_minutes'] = pd.to_numeric(summary_df['total_minutes'], errors='coerce').fillna(0)
+				st.dataframe(summary_df, use_container_width=True)
+				st.bar_chart(summary_df.set_index('category')[['total_minutes']])
+			else:
+				st.warning('Breakdown data is missing category or total_minutes fields.')
 	except (requests.RequestException, TypeError, ValueError, KeyError) as exc:
 		logger.exception('Failed to fetch analyst category breakdown')
 		st.error(f'Could not load category breakdown data: {exc}')
