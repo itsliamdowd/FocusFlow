@@ -150,6 +150,8 @@ else:
 
 st.subheader("Pomodoro Timer")
 st.markdown(f'<div class="timer-clock">{format_time(st.session_state.time_left)}</div>', unsafe_allow_html=True)
+session_progress = min(1.0, max(0.0, (1800 - st.session_state.time_left) / 1800))
+st.progress(session_progress)
 st.markdown('<p class="timer-caption">MM:SS remaining in current focus block</p>', unsafe_allow_html=True)
 
 primary_bg = "#dc2626" if st.session_state.running else "#16a34a"
