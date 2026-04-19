@@ -3,6 +3,7 @@ logger = logging.getLogger(__name__)
 
 import streamlit as st
 import requests
+import pandas as pd
 from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide')
@@ -13,27 +14,43 @@ BASE_URL = 'http://web-api:4000/professor'
 professor_id = st.session_state.get('user_id', 1)
 
 st.title('My Courses')
+st.write("Create courses and manage your existing catalog.")
 
 response = requests.get(f'{BASE_URL}/courses', params={'professor_id': professor_id})
 
 if response.status_code == 200:
     courses = response.json().get('courses', [])
-    if not courses:
-        st.info('You have no courses yet.')
-    for course in courses:
-        with st.expander(f"{course['course_code']} — {course['title']}"):
-            st.write(f"**Course ID:** {course['course_id']}")
-            col1, col2 = st.columns([1, 5])
-            with col1:
-                if st.button('Delete', key=f"del_{course['course_id']}"):
-                    del_response = requests.delete(f"{BASE_URL}/courses/{course['course_id']}")
-                    if del_response.status_code == 200:
-                        st.success('Course deleted.')
-                        st.rerun()
-                    else:
-                        st.error('Failed to delete course.')
 else:
     st.error('Could not load courses.')
+    st.stop()
+
+if not courses:
+    st.info('You have no courses yet.')
+else:
+    total_courses = len(courses)
+    st.metric("Total Courses", total_courses)
+    course_df = pd.DataFrame(courses)
+    display_cols = [c for c in ["course_id", "course_code", "title", "department_id"] if c in course_df.columns]
+    st.dataframe(course_df[display_cols], hide_index=True, use_container_width=True)
+
+    delete_options = {
+        f"{course['course_code']} — {course['title']} (ID {course['course_id']})": course["course_id"]
+        for course in courses
+    }
+    selected_delete_label = st.selectbox(
+        "Select course to delete",
+        options=["None"] + list(delete_options.keys()),
+        index=0,
+        key="prof_delete_course_select",
+    )
+    if st.button("Delete Selected Course", type="secondary", disabled=selected_delete_label == "None"):
+        selected_course_id = delete_options[selected_delete_label]
+        del_response = requests.delete(f"{BASE_URL}/courses/{selected_course_id}")
+        if del_response.status_code == 200:
+            st.success('Course deleted.')
+            st.rerun()
+        else:
+            st.error('Failed to delete course.')
 
 st.divider()
 st.subheader('Create a New Course')
