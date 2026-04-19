@@ -12,7 +12,80 @@ BASE_URL = 'http://api:4000/student'
 user_id = st.session_state.get('user_id', 25)
 role = st.session_state.get('role', 'student')
 
-st.title("Tasks")
+st.markdown(
+    """
+    <style>
+    .task-hero {
+        border-radius: 16px;
+        padding: 1.25rem 1.5rem;
+        background: linear-gradient(135deg, #111827, #1f2937 45%, #312e81);
+        color: #f9fafb;
+        margin-bottom: 1rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+    }
+    .task-hero h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+    .task-hero p {
+        margin: 0.35rem 0 0 0;
+        color: #d1d5db;
+    }
+    .task-card {
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 14px;
+        padding: 0.85rem 1rem;
+        background: rgba(15, 23, 42, 0.25);
+        margin-bottom: 0.65rem;
+    }
+    .task-title {
+        font-weight: 700;
+        color: #e2e8f0;
+        margin-bottom: 0.45rem;
+    }
+    .task-pill {
+        display: inline-block;
+        border-radius: 999px;
+        padding: 0.15rem 0.55rem;
+        margin-right: 0.45rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+    }
+    .pill-category {
+        background: rgba(59, 130, 246, 0.18);
+        color: #bfdbfe;
+        border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+    .pill-priority-low {
+        background: rgba(22, 163, 74, 0.18);
+        color: #bbf7d0;
+        border: 1px solid rgba(22, 163, 74, 0.35);
+    }
+    .pill-priority-medium {
+        background: rgba(234, 179, 8, 0.2);
+        color: #fde68a;
+        border: 1px solid rgba(234, 179, 8, 0.35);
+    }
+    .pill-priority-high {
+        background: rgba(239, 68, 68, 0.2);
+        color: #fecaca;
+        border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <div class="task-hero">
+      <h1>Task Studio</h1>
+      <p>Organize what matters, keep momentum, and clear your list with style.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 
 def build_headers():
@@ -59,10 +132,14 @@ if load_error:
 
 
 # Add task
-with st.form("add_task"):
-    title = st.text_input("Task Title")
-    category = st.selectbox("Category", ["school", "work", "extracurricular", "personal"])
-    priority = st.selectbox("Priority", ["low", "medium", "high"])
+st.subheader("Add a New Task")
+with st.form("add_task", clear_on_submit=True):
+    left_col, right_col = st.columns([3, 2])
+    with left_col:
+        title = st.text_input("Task Title", placeholder="e.g., Review chapter notes")
+    with right_col:
+        category = st.selectbox("Category", ["school", "work", "extracurricular", "personal"])
+        priority = st.selectbox("Priority", ["low", "medium", "high"])
     submitted = st.form_submit_button("Add Task")
 
     if submitted:
@@ -103,12 +180,20 @@ if not tasks:
 
 for task in tasks:
     col1, col2 = st.columns([4, 1])
+    task_title = task.get('title', 'Untitled')
+    category = task.get('category', 'uncategorized')
+    priority = task.get('priority', 'medium').lower()
 
     with col1:
-        st.write(
-            f"**{task.get('title', 'Untitled')}** "
-            f"({task.get('category', 'uncategorized')}, "
-            f"{task.get('priority', 'medium')})"
+        st.markdown(
+            f"""
+            <div class="task-card">
+              <div class="task-title">{task_title}</div>
+              <span class="task-pill pill-category">{category}</span>
+              <span class="task-pill pill-priority-{priority}">{priority}</span>
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
     with col2:

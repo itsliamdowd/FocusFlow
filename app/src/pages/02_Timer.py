@@ -16,8 +16,57 @@ BASE_URL = 'http://api:4000/student'
 user_id = st.session_state.get('user_id', 25)
 role = st.session_state.get('role', 'student')
 
-st.title("Timer")
-st.write("Set a timer to stay on task and track your habits!")
+st.markdown(
+    """
+    <style>
+        .timer-hero {
+            background: #1d4ed8;
+            border: 1px solid #1e40af;
+            border-radius: 16px;
+            padding: 1.25rem 1.4rem;
+            color: #eff6ff;
+            margin-bottom: 1rem;
+        }
+        .timer-hero h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .timer-hero p {
+            margin: 0.4rem 0 0 0;
+            color: #dbeafe;
+        }
+        .timer-clock {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0.5rem 0 0.7rem;
+            letter-spacing: 1.2px;
+        }
+        .timer-caption {
+            color: #64748b;
+            font-size: 0.9rem;
+            text-align: center;
+            margin: 0;
+        }
+        .stButton button {
+            border-radius: 10px;
+            font-weight: 600;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div class="timer-hero">
+        <h1>Focus Timer</h1>
+        <p>Stay on task with a simple Pomodoro workflow and automatic session tracking.</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 def build_headers():
@@ -100,12 +149,35 @@ else:
 
 
 st.subheader("Pomodoro Timer")
-st.metric("Time", format_time(st.session_state.time_left))
+st.markdown(f'<div class="timer-clock">{format_time(st.session_state.time_left)}</div>', unsafe_allow_html=True)
+st.markdown('<p class="timer-caption">MM:SS remaining in current focus block</p>', unsafe_allow_html=True)
+
+primary_bg = "#dc2626" if st.session_state.running else "#16a34a"
+primary_border = "#b91c1c" if st.session_state.running else "#15803d"
+primary_hover = "#b91c1c" if st.session_state.running else "#15803d"
+st.markdown(
+    f"""
+    <style>
+        div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child div.stButton > button {{
+            background-color: {primary_bg};
+            color: #ffffff;
+            border: 1px solid {primary_border};
+        }}
+        div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child div.stButton > button:hover {{
+            background-color: {primary_hover};
+            color: #ffffff;
+            border: 1px solid {primary_border};
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 col1, col2 = st.columns(2)
 
 with col1:
-    if st.button("Start", disabled=selected_task_id is None):
+    primary_label = "Stop" if st.session_state.running else "Start"
+    if st.button(primary_label, disabled=selected_task_id is None):
         if not st.session_state.running and selected_task_id is not None:
             payload = {
                 "user_id": user_id,
@@ -133,6 +205,37 @@ with col1:
                         st.error("Unable to start timer session.")
             except requests.exceptions.RequestException as exc:
                 st.error(f"Could not connect to timer service: {exc}")
+        elif st.session_state.running:
+            if selected_task_id is not None and st.session_state.active_session_id is not None:
+                elapsed_seconds = max(0, 1800 - st.session_state.time_left)
+                elapsed_minutes = max(1, (elapsed_seconds + 59) // 60)
+                payload = {
+                    "session_id": st.session_state.active_session_id,
+                    "end_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "duration": elapsed_minutes
+                }
+
+                try:
+                    stop_response = requests.put(
+                        f"{BASE_URL}/tasks/{selected_task_id}/sessions",
+                        json=payload,
+                        headers=build_headers(),
+                        timeout=10
+                    )
+                    if stop_response.status_code in [200, 201]:
+                        st.success("Timer stopped. Session saved.")
+                    else:
+                        try:
+                            st.error(stop_response.json().get("error", "Unable to save timer session."))
+                        except ValueError:
+                            st.error("Unable to save timer session.")
+                except requests.exceptions.RequestException as exc:
+                    st.error(f"Could not connect to timer service: {exc}")
+
+            st.session_state.running = False
+            st.session_state.time_left = 1800
+            st.session_state.active_session_id = None
+            st.rerun()
 
 with col2:
     if st.button("Reset"):
