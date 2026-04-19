@@ -10,6 +10,12 @@ def apply_global_theme():
     st.markdown(
         """
         <style>
+            :root {
+                --focusflow-heading-bg: #1e40af;
+                --focusflow-heading-border: rgba(191, 219, 254, 0.42);
+                --focusflow-heading-shadow: 0 10px 20px rgba(30, 64, 175, 0.22);
+                --focusflow-heading-text: #eff6ff;
+            }
             .stApp {
                 background:
                     radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 42%),
@@ -48,11 +54,46 @@ def apply_global_theme():
                 border-radius: 12px;
                 padding: 0.5rem 0.8rem;
             }
+            /* Theme only native Streamlit page titles (st.title), not custom HTML hero headings. */
+            .stApp [data-testid="stHeadingWithActionElements"] h1 {
+                background: var(--focusflow-heading-bg);
+                border: 1px solid var(--focusflow-heading-border);
+                border-radius: 16px;
+                padding: 0.95rem 1.15rem;
+                color: var(--focusflow-heading-text);
+                box-shadow: var(--focusflow-heading-shadow);
+                margin-bottom: 0.9rem;
+            }
+            /* Force all hero heading containers to use the exact same heading color style. */
+            .stMarkdown .focusflow-hero,
+            .stMarkdown .student-hero,
+            .stMarkdown .task-hero,
+            .stMarkdown .timer-hero {
+                background: var(--focusflow-heading-bg) !important;
+                border: 1px solid var(--focusflow-heading-border) !important;
+                box-shadow: var(--focusflow-heading-shadow) !important;
+                color: var(--focusflow-heading-text) !important;
+            }
+            /* If a page uses its own hero container, keep only the outer hero box. */
+            .stMarkdown .focusflow-hero h1,
+            .stMarkdown .student-hero h1,
+            .stMarkdown .task-hero h1,
+            .stMarkdown .timer-hero h1 {
+                background: transparent;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 0;
+                margin-bottom: 0;
+                color: inherit;
+            }
+            .stApp .block-container h2 {
+                color: #1e3a8a;
+            }
         </style>
         """,
         unsafe_allow_html=True,
     )
-
 
 # ---- General ----------------------------------------------------------------
 
