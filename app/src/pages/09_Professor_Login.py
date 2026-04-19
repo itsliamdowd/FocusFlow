@@ -32,6 +32,7 @@ try:
         st.session_state['role'] = 'professor'
         st.session_state['first_name'] = selected['first_name']
         st.session_state['user_id'] = selected['user_id']
+        st.session_state['institution'] = selected.get('institution',1)
         st.switch_page('pages/10_Professor_Home.py')
 
 except Exception as e:

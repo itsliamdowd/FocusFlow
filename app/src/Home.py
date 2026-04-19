@@ -32,53 +32,20 @@ SideBarLinks(show_home=True)
 
 logger.info("Loading the Home page of the app")
 st.title('FocusFlow')
-st.write('Who would you like to login as')
+st.write('Who would you like to act as')
 
-# For each of the user personas for which we are implementing
+# For each of the user types for which we are implementing
 # functionality, we put a button on the screen that the user
-# can click to MIMIC logging in as that mock user.
+# can click to go to the login page for that type of user
 
-if st.button("Act as Jerry, a Student.",
-             type='primary',
-             use_container_width=True):
-    # when user clicks the button, they are now considered authenticated
-    st.session_state['authenticated'] = True
-    # we set the role of the current user
-    st.session_state['role'] = 'student'
-    # we add the first name of the user (so it can be displayed on
-    # subsequent pages).
-    st.session_state['first_name'] = 'Jerry'
-    st.session_state['user_id'] = 25
-    st.session_state['institution_id'] = 1
-    # finally, we ask streamlit to switch to another page, in this case, the
-    # landing page for this particular user type
-    logger.info("Logging in as Student Persona")
-    st.switch_page('pages/00_Student_Home.py')
+if st.button("Act as Student", type='primary', use_container_width=True):
+    st.switch_page('pages/08_Student_Login.py')
 
-if st.button('Act as Dr. Davis a Professor', type='primary', use_container_width=True):
-    st.session_state['authenticated'] = True
-    st.session_state['role'] = 'professor'
-    st.session_state['first_name'] = 'Matthew'
-    st.session_state['user_id'] = 1
-    st.session_state['institution_id'] = 1
+if st.button('Act as Professor', type='primary', use_container_width=True):
     st.switch_page('pages/09_Professor_Login.py')
 
-if st.button('Act as Jimmy, a System Administrator',
-             type='primary',
-             use_container_width=True):
-    st.session_state['authenticated'] = True
-    st.session_state['role'] = 'system admin'
-    st.session_state['first_name'] = 'Jimmy'
-    st.session_state['user_id'] = 48
-    st.session_state['institution_id'] = 6
-    st.switch_page('pages/20_Admin_Home.py')
+if st.button('Act as System Administrator', type='primary', use_container_width=True):
+    st.switch_page('pages/18_Admin_Login.py')
 
-if st.button('Act as James, a Data Analyst.',
-             type='primary',
-             use_container_width=True):
-    st.session_state['authenticated'] = True
-    st.session_state['role'] = 'data analyst'
-    st.session_state['first_name'] = 'James'
-    st.session_state['user_id'] = 45
-    st.session_state['institution_id'] = 6
-    st.switch_page('pages/17_Data_Analyst_Home.py')
+if st.button('Act as Data Analyst', type='primary', use_container_width=True):
+    st.switch_page('pages/16_Analyst_Login.py')
