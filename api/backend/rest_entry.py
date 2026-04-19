@@ -59,15 +59,24 @@ def create_app():
     app.register_blueprint(analyst_bp)
     app.register_blueprint(admin_bp)
 
+    def is_auth_bypass_enabled():
+        disable_auth = os.getenv("DISABLE_API_AUTH", "false").strip().lower() in {"1", "true", "yes"}
+        flask_env = os.getenv("FLASK_ENV", "").strip().lower()
+        env_name = os.getenv("ENV", "").strip().lower()
+        is_dev_env = flask_env == "development" or env_name == "development"
+        return disable_auth and is_dev_env
+
+    auth_bypass_enabled = is_auth_bypass_enabled()
+    if auth_bypass_enabled:
+        app.logger.warning("API auth bypass is enabled for development")
+    elif app.config.get("ENABLE_API_AUTH", True):
+        required_env("API_AUTH_TOKEN")
+
     @app.before_request
     def protect_api_routes():
         if not app.config.get("ENABLE_API_AUTH", True):
             return None
-        if os.getenv("DISABLE_API_AUTH", "false").strip().lower() in {"1", "true", "yes"}:
-            return None
-        if os.getenv("FLASK_ENV", "").strip().lower() == "development":
-            return None
-        if os.getenv("ENV", "").strip().lower() == "development":
+        if auth_bypass_enabled:
             return None
 
         path = request.path

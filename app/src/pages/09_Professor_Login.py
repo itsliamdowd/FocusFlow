@@ -2,7 +2,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 import streamlit as st
-import requests
+from modules.api_client import api_get, show_api_error
 from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide')
@@ -11,12 +11,7 @@ SideBarLinks(show_home=True)
 st.title('Professor Login')
 
 try:
-    response = requests.get('http://web-api:4000/professor/users')
-    if response.status_code != 200:
-        st.error('Could not load professor list from the API.')
-        st.stop()
-
-    professors = response.json().get('professors', [])
+    professors = api_get('/professor/users').get('professors', [])
     if not professors:
         st.info('No professors found in the database.')
         st.stop()
@@ -35,5 +30,5 @@ try:
         st.session_state['institution'] = selected.get('institution',1)
         st.switch_page('pages/10_Professor_Home.py')
 
-except Exception as e:
-    st.error(f'Could not connect to the API: {e}')
+except Exception as exc:
+    show_api_error(exc)
