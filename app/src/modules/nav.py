@@ -5,6 +5,55 @@
 import streamlit as st
 
 
+def apply_global_theme():
+    """Apply shared visual theme across all app pages."""
+    st.markdown(
+        """
+        <style>
+            .stApp {
+                background:
+                    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 42%),
+                    linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+            }
+            [data-testid="stHeader"] {
+                background: transparent;
+            }
+            [data-testid="stSidebar"] {
+                background: linear-gradient(180deg, #e9f1ff 0%, #dbeafe 100%);
+                border-right: 1px solid #bfdbfe;
+            }
+            [data-testid="stSidebar"] * {
+                color: #1e3a8a;
+            }
+            [data-testid="stSidebar"] button[kind="secondary"] {
+                border-radius: 10px;
+                border: 1px solid #93c5fd;
+                background: #ffffff;
+            }
+            [data-testid="stSidebar"] button[kind="secondary"]:hover {
+                border-color: #60a5fa;
+                background: #eff6ff;
+            }
+            .stButton > button {
+                border-radius: 10px;
+            }
+            div[data-testid="stForm"] {
+                border: 1px solid #bfdbfe;
+                border-radius: 12px;
+                background: linear-gradient(180deg, #ffffff, #f8fbff);
+            }
+            div[data-testid="stMetric"] {
+                background: #ffffff;
+                border: 1px solid #dbeafe;
+                border-radius: 12px;
+                padding: 0.5rem 0.8rem;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 # ---- General ----------------------------------------------------------------
 
 def home_nav():
@@ -109,6 +158,9 @@ def SideBarLinks(show_home=False):
     Renders sidebar navigation links based on the logged-in user's role.
     The role is stored in st.session_state when the user logs in on Home.py.
     """
+
+    # Apply shared page-level visual style before rendering content.
+    apply_global_theme()
 
     # Logo appears at the top of the sidebar on every page
     st.sidebar.image("assets/logo.png", width=150)
