@@ -31,6 +31,7 @@ if st.button('Analyze', type='primary'):
 		elif not rows:
 			st.info('No category activity found for this user.')
 		else:
+			st.caption(f'Showing breakdown for User ID {int(user_id)}.')
 			st.dataframe(rows, use_container_width=True)
 			chart_data = {
 				row['category']: row['total_minutes']

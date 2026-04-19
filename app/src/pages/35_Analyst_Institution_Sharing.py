@@ -22,6 +22,13 @@ if st.button('Load Data', type='primary'):
 		rows = payload.get('shared', []) if isinstance(payload, dict) else []
 		if isinstance(rows, list):
 			st.dataframe(rows, use_container_width=True)
+			chart_data = {
+				row['institution_id']: row['total_duration']
+				for row in rows
+				if isinstance(row, dict) and 'institution_id' in row and 'total_duration' in row
+			}
+			if chart_data:
+				st.bar_chart(chart_data)
 		else:
 			st.warning('Unexpected response format returned by the API.')
 	except requests.RequestException as exc:

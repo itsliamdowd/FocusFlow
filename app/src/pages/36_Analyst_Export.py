@@ -23,6 +23,7 @@ if st.button('Export Data', type='primary'):
 		response = requests.get(f'{base_url}/analyst/export', timeout=10)
 		response.raise_for_status()
 		rows = response.json().get('export', [])
+		st.caption(f'Exporting {len(rows)} records')
 		st.dataframe(rows, use_container_width=True)
 
 		csv_buffer = StringIO()
