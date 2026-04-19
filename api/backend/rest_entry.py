@@ -69,8 +69,6 @@ def create_app():
     auth_bypass_enabled = is_auth_bypass_enabled()
     if auth_bypass_enabled:
         app.logger.warning("API auth bypass is enabled for development")
-    elif app.config.get("ENABLE_API_AUTH", True):
-        required_env("API_AUTH_TOKEN")
 
     @app.before_request
     def protect_api_routes():
@@ -81,7 +79,7 @@ def create_app():
 
         path = request.path
 
-        if path in {"/", "/playlist", "/niceMessage", "/message", "/data"} or path.startswith("/prediction/"):
+        if path in {"/", "/playlist", "/niceMessage", "/message", "/data", "/student/users"} or path.startswith("/prediction/"):
             return None
         if path.startswith("/student"):
             return enforce_api_access({"student", "admin"})

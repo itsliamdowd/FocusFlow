@@ -30,10 +30,6 @@ def build_headers():
     if user_id is not None:
         headers["X-User-Id"] = str(user_id)
 
-    api_token = os.getenv("API_AUTH_TOKEN", "").strip()
-    if api_token:
-        headers["X-API-Token"] = api_token
-
     return headers
 
 

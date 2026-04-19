@@ -1,6 +1,5 @@
-import os
 from typing import Iterable
-from flask import current_app, jsonify, request
+from flask import jsonify, request
 
 
 def _normalized_roles(raw_roles: str) -> set[str]:
@@ -13,20 +12,9 @@ def _normalized_roles(raw_roles: str) -> set[str]:
 
 def enforce_api_access(allowed_roles: Iterable[str] | None = None):
     """
-    Enforce a minimal API token + role gate on protected routes.
-
-    - `X-API-Token` must match API_AUTH_TOKEN from env.
+    Enforce role gate on protected routes.
     - `X-User-Role` must be in allowed_roles when provided.
     """
-    expected_token = os.getenv("API_AUTH_TOKEN")
-    if not expected_token:
-        current_app.logger.error("API_AUTH_TOKEN is not configured")
-        return jsonify({"error": "Server authentication is not configured"}), 503
-
-    token = request.headers.get("X-API-Token", "").strip()
-    if not token or token != expected_token:
-        return jsonify({"error": "Unauthorized"}), 401
-
     if allowed_roles:
         role = request.headers.get("X-User-Role", "").strip().lower()
         valid_roles = _normalized_roles(",".join(allowed_roles))

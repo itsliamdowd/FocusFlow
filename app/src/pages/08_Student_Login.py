@@ -4,6 +4,7 @@ logger = logging.getLogger(__name__)
 import streamlit as st
 import requests
 from modules.nav import SideBarLinks
+from modules.api_client import get_api_base_url
 
 st.set_page_config(layout='wide')
 SideBarLinks(show_home=True)
@@ -11,7 +12,7 @@ SideBarLinks(show_home=True)
 st.title('Student Login')
 
 try:
-    response = requests.get('http://web-api:4000/student/users', timeout=10)
+    response = requests.get(f"{get_api_base_url()}/student/users", timeout=10)
     if response.status_code != 200:
         st.error('Could not load student list from the API.')
         st.stop()
