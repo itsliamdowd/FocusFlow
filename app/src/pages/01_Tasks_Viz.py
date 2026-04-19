@@ -32,12 +32,12 @@ st.markdown(
         color: #dbeafe;
     }
     .task-card {
-        border: 1px solid rgba(15, 23, 42, 0.16);
-        border-radius: 14px;
-        padding: 0.85rem 1rem;
-        background: rgba(255, 255, 255, 0.96);
-        margin-bottom: 0.65rem;
-        box-shadow: 0 6px 16px rgba(2, 6, 23, 0.1);
+        border: none;
+        border-radius: 0;
+        padding: 0.2rem 0.2rem 0.2rem 0.1rem;
+        background: transparent;
+        margin-bottom: 0.4rem;
+        box-shadow: none;
     }
     .task-title {
         font-weight: 700;
@@ -53,6 +53,9 @@ st.markdown(
         font-size: 0.78rem;
         font-weight: 600;
         letter-spacing: 0.01em;
+    }
+    .task-meta {
+        margin-bottom: 0.4rem;
     }
     .pill-category {
         background: #dbeafe;
@@ -73,6 +76,46 @@ st.markdown(
         background: #fee2e2;
         color: #991b1b;
         border: 1px solid #fca5a5;
+    }
+    div[data-testid="stForm"] {
+        border: 1px solid #bfdbfe;
+        border-radius: 14px;
+        padding: 1rem 1rem 0.7rem 1rem;
+        background: linear-gradient(180deg, #f8fbff, #eef4ff);
+        box-shadow: 0 6px 14px rgba(30, 64, 175, 0.08);
+        margin-bottom: 1rem;
+    }
+    div[data-testid="stForm"] label {
+        font-weight: 600;
+    }
+    div[data-testid="stForm"] [data-baseweb="select"] {
+        margin-bottom: 0.15rem;
+    }
+    div[data-testid="stForm"] .stFormSubmitButton > button {
+        background: #2563eb;
+        color: #ffffff;
+        border: 1px solid #1d4ed8;
+        border-radius: 10px;
+        font-weight: 700;
+    }
+    div[data-testid="stForm"] .stFormSubmitButton > button:hover {
+        background: #1d4ed8;
+        border-color: #1e40af;
+        color: #ffffff;
+    }
+    .stButton > button {
+        background: #dc2626;
+        color: #ffffff;
+        border: 1px solid #b91c1c;
+        border-radius: 10px;
+        font-weight: 600;
+        width: 100%;
+        min-height: 2.3rem;
+    }
+    .stButton > button:hover {
+        background: #b91c1c;
+        border-color: #991b1b;
+        color: #ffffff;
     }
     </style>
     """,
@@ -181,43 +224,47 @@ if not tasks:
     st.info("No tasks have been added yet.")
 
 for task in tasks:
-    col1, col2 = st.columns([4, 1])
     task_title = task.get('title', 'Untitled')
     category = task.get('category', 'uncategorized')
     priority = task.get('priority', 'medium').lower()
+    task_id = task.get('task_id')
 
-    with col1:
-        st.markdown(
-            f"""
-            <div class="task-card">
-              <div class="task-title">{task_title}</div>
-              <span class="task-pill pill-category">{category}</span>
-              <span class="task-pill pill-priority-{priority}">{priority}</span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    with st.container(border=True):
+        col1, col2 = st.columns([5, 1], vertical_alignment="center")
 
-    with col2:
-        task_id = task.get('task_id')
-        if task_id is None:
-            continue
+        with col1:
+            st.markdown(
+                f"""
+                <div class="task-card">
+                  <div class="task-title">{task_title}</div>
+                  <div class="task-meta">
+                    <span class="task-pill pill-category">{category}</span>
+                    <span class="task-pill pill-priority-{priority}">{priority}</span>
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
-        delete_key = f"task_delete_{task_id}"
-        if st.button("Delete", key=delete_key):
-            try:
-                delete_response = requests.delete(
-                    f"{BASE_URL}/tasks/{task_id}",
-                    headers=build_headers(),
-                    timeout=10
-                )
-                if delete_response.status_code == 200:
-                    st.success("Task deleted.")
-                    st.rerun()
-                else:
-                    try:
-                        st.error(delete_response.json().get('error', 'Unable to delete task.'))
-                    except ValueError:
-                        st.error('Unable to delete task.')
-            except requests.exceptions.RequestException as exc:
-                st.error(f"Could not reach task service: {exc}")
+        with col2:
+            if task_id is None:
+                continue
+
+            delete_key = f"task_delete_{task_id}"
+            if st.button("Delete", key=delete_key):
+                try:
+                    delete_response = requests.delete(
+                        f"{BASE_URL}/tasks/{task_id}",
+                        headers=build_headers(),
+                        timeout=10
+                    )
+                    if delete_response.status_code == 200:
+                        st.success("Task deleted.")
+                        st.rerun()
+                    else:
+                        try:
+                            st.error(delete_response.json().get('error', 'Unable to delete task.'))
+                        except ValueError:
+                            st.error('Unable to delete task.')
+                except requests.exceptions.RequestException as exc:
+                    st.error(f"Could not reach task service: {exc}")

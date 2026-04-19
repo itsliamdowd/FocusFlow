@@ -35,13 +35,13 @@ st.markdown(
     """
     <style>
         .focusflow-hero {
-            background: #1d4ed8;
-            border: 1px solid #1e40af;
-            border-radius: 16px;
-            padding: 2rem 2.25rem;
+            background: radial-gradient(circle at top right, #3b82f6 0%, #1d4ed8 45%, #1e3a8a 100%);
+            border: 1px solid rgba(191, 219, 254, 0.35);
+            border-radius: 18px;
+            padding: 2rem 2.25rem 1.5rem;
             color: #eff6ff;
             margin-bottom: 1.25rem;
-            box-shadow: 0 8px 20px rgba(29, 78, 216, 0.25);
+            box-shadow: 0 14px 28px rgba(30, 58, 138, 0.35);
         }
         .focusflow-hero h1 {
             margin: 0;
@@ -50,17 +50,47 @@ st.markdown(
         }
         .focusflow-hero p {
             margin-top: 0.6rem;
-            margin-bottom: 0;
+            margin-bottom: 0.9rem;
             color: #dbeafe;
             font-size: 1.02rem;
         }
+        .focusflow-chip-wrap {
+            display: flex;
+            gap: 0.45rem;
+            flex-wrap: wrap;
+        }
+        .focusflow-chip {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid rgba(219, 234, 254, 0.5);
+            background: rgba(30, 64, 175, 0.38);
+            color: #dbeafe;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .focusflow-section-title {
+            margin: 0.35rem 0 0.75rem 0;
+            font-size: 1rem;
+            color: #1e3a8a;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
         .focusflow-card {
-            background: linear-gradient(160deg, #f8fafc 0%, #f1f5f9 100%);
-            border: 1px solid #e2e8f0;
+            background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #dbeafe;
             border-radius: 14px;
-            padding: 1rem 1rem 0.6rem;
-            margin-bottom: 0.6rem;
+            padding: 1rem 1rem 0.8rem;
+            margin-bottom: 0.5rem;
             min-height: 140px;
+            box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+        .focusflow-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(30, 64, 175, 0.14);
+            border-color: #93c5fd;
         }
         .focusflow-card h3 {
             margin: 0 0 0.3rem 0;
@@ -75,13 +105,15 @@ st.markdown(
         }
         .stButton button {
             border-radius: 10px;
-            padding: 0.48rem 0.9rem;
+            padding: 0.55rem 0.9rem;
             border: 0;
-            font-weight: 600;
-            box-shadow: 0 6px 14px rgba(37, 99, 235, 0.2);
+            font-weight: 700;
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.22);
+            background: #2563eb;
         }
         .stButton button:hover {
             transform: translateY(-1px);
+            background: #1d4ed8;
         }
     </style>
     """,
@@ -93,10 +125,16 @@ st.markdown(
     <div class="focusflow-hero">
         <h1>FocusFlow</h1>
         <p>Select a role to enter your workspace and continue where you left off.</p>
+        <div class="focusflow-chip-wrap">
+            <span class="focusflow-chip">Task Planning</span>
+            <span class="focusflow-chip">Role Dashboards</span>
+            <span class="focusflow-chip">Analytics Insights</span>
+        </div>
     </div>
     """,
     unsafe_allow_html=True,
 )
+st.markdown('<div class="focusflow-section-title">Choose Your Workspace</div>', unsafe_allow_html=True)
 
 roles = [
     {
