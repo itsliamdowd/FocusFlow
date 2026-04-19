@@ -85,6 +85,7 @@ if st.button('Apply Filters', type='primary'):
         activity = response.json().get('activity', [])
 
         if isinstance(activity, list) and activity:
+            st.caption(f'Showing {len(activity)} results.')
             st.dataframe(activity, use_container_width=True)
         elif isinstance(activity, list):
             st.info('No activity rows matched the selected filters.')
