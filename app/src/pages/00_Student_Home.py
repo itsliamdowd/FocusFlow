@@ -71,6 +71,7 @@ st.markdown(
         .task-meta {
             color: #475569;
             font-size: 0.86rem;
+            padding-bottom: 0.4rem;
         }
         .category-pill {
             display: inline-block;
