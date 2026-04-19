@@ -12,12 +12,13 @@ SideBarLinks(show_home=True)
 st.title('Student Login')
 
 try:
-    response = requests.get(f"{get_api_base_url()}/student/users", timeout=10)
-    if response.status_code != 200:
-        st.error('Could not load student list from the API.')
-        st.stop()
+    with st.spinner('Loading...'):
+        response = requests.get(f"{get_api_base_url()}/student/users", timeout=10)
+        if response.status_code != 200:
+            st.error('Could not load student list from the API.')
+            st.stop()
 
-    students = response.json().get('students', [])
+        students = response.json().get('students', [])
     if not students:
         st.info('No students found in the database.')
         st.stop()

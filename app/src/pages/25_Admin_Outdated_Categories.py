@@ -28,3 +28,11 @@ else:
 
     st.subheader("Users by Institution")
     st.dataframe(users, use_container_width=True)
+
+    chart_data = {
+        row.get("institution_name", f"Institution {row.get('institution_id', 'Unknown')}"): int(row.get("user_count", 0) or 0)
+        for row in users
+        if isinstance(row, dict)
+    }
+    if chart_data:
+        st.bar_chart(chart_data)

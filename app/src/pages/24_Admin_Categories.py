@@ -28,6 +28,7 @@ st.divider()
 
 if categories:
     category_to_remove = st.selectbox("Choose category to remove", categories)
+    st.warning("Warning: this will permanently delete all activity logs under the selected category.")
     if st.button("Delete Category Logs", type="primary"):
         try:
             api_delete(f"/admin/categories?category={category_to_remove}")

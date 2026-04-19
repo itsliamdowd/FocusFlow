@@ -11,7 +11,8 @@ SideBarLinks(show_home=True)
 st.title('Professor Login')
 
 try:
-    professors = api_get('/professor/users').get('professors', [])
+    with st.spinner('Loading...'):
+        professors = api_get('/professor/users').get('professors', [])
     if not professors:
         st.info('No professors found in the database.')
         st.stop()
