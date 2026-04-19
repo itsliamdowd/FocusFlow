@@ -3,6 +3,7 @@ logger = logging.getLogger(__name__)
 
 import streamlit as st
 import requests
+import pandas as pd
 from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide')
@@ -47,21 +48,36 @@ except requests.exceptions.RequestException as exc:
 
 if not assignments:
     st.info('No assignments have been created for this course yet.')
+else:
+    assignments_df = pd.DataFrame(assignments)
+    display_cols = [
+        col for col in ["assignment_id", "title", "due_date", "time_benchmark", "description"]
+        if col in assignments_df.columns
+    ]
+    st.dataframe(assignments_df[display_cols], hide_index=True, use_container_width=True)
 
-for assignment in assignments:
-    with st.expander(f"{assignment.get('title', 'Untitled')} (Due: {assignment.get('due_date', 'TBD')})"):
-        st.write(f"**Description:** {assignment.get('description', 'No description provided.')}")
-        st.write(f"**Time Benchmark:** {assignment.get('time_benchmark', 'Not set')}")
-        if st.button('Delete Assignment', key=f"delete_assignment_{assignment['assignment_id']}"):
-            try:
-                delete_response = requests.delete(f"{BASE_URL}/assignments/{assignment['assignment_id']}")
-                if delete_response.status_code == 200:
-                    st.success('Assignment deleted successfully.')
-                    st.rerun()
-                else:
-                    st.error(delete_response.json().get('error', 'Failed to delete assignment.'))
-            except requests.exceptions.RequestException as exc:
-                st.error(f'Failed to reach the assignment service: {exc}')
+    delete_options = {
+        f"{row.get('title', 'Untitled')} (ID {row.get('assignment_id')})": row.get("assignment_id")
+        for _, row in assignments_df.iterrows()
+    }
+    selected_delete_assignment = st.selectbox(
+        "Select assignment to delete",
+        options=["None"] + list(delete_options.keys()),
+        index=0,
+        key=f"assignment_delete_{selected_course_id}",
+    )
+    if st.button("Delete Selected Assignment", disabled=selected_delete_assignment == "None"):
+        try:
+            delete_response = requests.delete(
+                f"{BASE_URL}/assignments/{delete_options[selected_delete_assignment]}"
+            )
+            if delete_response.status_code == 200:
+                st.success('Assignment deleted successfully.')
+                st.rerun()
+            else:
+                st.error(delete_response.json().get('error', 'Failed to delete assignment.'))
+        except requests.exceptions.RequestException as exc:
+            st.error(f'Failed to reach the assignment service: {exc}')
 
 st.divider()
 

@@ -40,21 +40,37 @@ students = students_response.json().get('students', [])
 if not students:
     st.info('No students are currently enrolled in this course.')
 else:
-    for student in students:
-        cols = st.columns([5, 3, 2])
-        cols[0].write(f"**{student['first_name']} {student['last_name']}**")
-        cols[0].write(student['email'])
-        cols[1].write(f"Total time logged: {round(int(student['total_time_logged']) / 60, 1)} min")
-        if cols[2].button('Remove', key=f"remove_{selected_course_id}_{student['user_id']}"):
-            delete_response = requests.delete(
-                f'{BASE_URL}/courses/{selected_course_id}/students',
-                json={'user_id': student['user_id']}
-            )
-            if delete_response.status_code == 200:
-                st.success('Student removed successfully.')
-                st.rerun()
-            else:
-                st.error('Failed to remove student.')
+    roster_df = pd.DataFrame(students)
+    roster_df["name"] = roster_df["first_name"] + " " + roster_df["last_name"]
+    roster_df["minutes_logged"] = (
+        pd.to_numeric(roster_df.get("total_time_logged", 0), errors="coerce").fillna(0) / 60
+    ).round(1)
+    st.dataframe(
+        roster_df[[c for c in ["user_id", "name", "email", "minutes_logged"] if c in roster_df.columns]],
+        hide_index=True,
+        use_container_width=True,
+    )
+
+    remove_options = {
+        f"{row['name']} (ID {int(row['user_id'])})": int(row["user_id"])
+        for _, row in roster_df.iterrows()
+    }
+    selected_remove = st.selectbox(
+        "Select student to remove",
+        options=["None"] + list(remove_options.keys()),
+        index=0,
+        key=f"remove_student_select_{selected_course_id}",
+    )
+    if st.button("Remove Selected Student", disabled=selected_remove == "None"):
+        delete_response = requests.delete(
+            f'{BASE_URL}/courses/{selected_course_id}/students',
+            json={'user_id': remove_options[selected_remove]}
+        )
+        if delete_response.status_code == 200:
+            st.success('Student removed successfully.')
+            st.rerun()
+        else:
+            st.error('Failed to remove student.')
 
     st.divider()
     st.subheader('Time Distribution')
