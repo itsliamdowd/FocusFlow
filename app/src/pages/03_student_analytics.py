@@ -162,11 +162,3 @@ if leaderboard:
         st.dataframe(leaderboard_df, use_container_width=True)
 else:
     st.info("No leaderboard data available yet.")
-
-st.divider()
-
-st.subheader("Activity Logs")
-if activity_data:
-    st.dataframe(pd.DataFrame(activity_data), use_container_width=True)
-else:
-    st.write("This section can later show daily, weekly, or monthly activity summaries.")
