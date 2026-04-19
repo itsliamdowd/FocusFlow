@@ -82,8 +82,7 @@ if st.button('Apply Filters', type='primary'):
             timeout=10,
         )
         response.raise_for_status()
-        payload = response.json()
-        activity = payload.get('activity', []) if isinstance(payload, dict) else []
+        activity = response.json().get('activity', [])
 
         if isinstance(activity, list) and activity:
             st.dataframe(activity, use_container_width=True)

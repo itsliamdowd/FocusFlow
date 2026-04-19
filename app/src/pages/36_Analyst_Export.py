@@ -6,20 +6,23 @@ from io import StringIO
 
 import requests
 import streamlit as st
+from modules.api_client import get_api_base_url
 from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide')
 
 SideBarLinks()
 
+base_url = get_api_base_url()
+
 st.title('Export Student Activity Data')
 st.write('Download filtered activity data for reporting and analysis.')
 
 if st.button('Export Data', type='primary'):
 	try:
-		response = requests.get('http://localhost:4000/analyst/export', timeout=10)
+		response = requests.get(f'{base_url}/analyst/export', timeout=10)
 		response.raise_for_status()
-		rows = response.json()
+		rows = response.json().get('export', [])
 		st.dataframe(rows, use_container_width=True)
 
 		csv_buffer = StringIO()
