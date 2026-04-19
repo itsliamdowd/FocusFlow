@@ -84,9 +84,19 @@ else:
     st.subheader("Potentially Concerning Logs")
     st.write("Suggestion: long sessions, unusual entries, or suspicious records can be flagged below.")
 
+    suspicious_logs_found = False
     for row in activity:
         log_id = row.get("log_id")
         duration = row.get("duration")
+        try:
+            duration_num = float(duration)
+        except (TypeError, ValueError):
+            continue
+
+        if not (duration_num > 300 or duration_num <= 0):
+            continue
+
+        suspicious_logs_found = True
         category = row.get("category")
         user_name = f"{row.get('first_name', '')} {row.get('last_name', '')}".strip()
         major = row.get("major", "—")
@@ -104,17 +114,12 @@ else:
             suspicious = False
             reasons = []
 
-            try:
-                duration_num = int(duration)
-                if duration_num > 300:
-                    suspicious = True
-                    reasons.append("Very long duration")
-                if duration_num <= 0:
-                    suspicious = True
-                    reasons.append("Non-positive duration")
-            except (TypeError, ValueError):
+            if duration_num > 300:
                 suspicious = True
-                reasons.append("Non-numeric duration")
+                reasons.append("Very long duration")
+            if duration_num <= 0:
+                suspicious = True
+                reasons.append("Non-positive duration")
 
             if reasons:
                 st.warning("Possible issue: " + ", ".join(reasons))
@@ -131,6 +136,9 @@ else:
                         st.rerun()
                     except Exception as exc:
                         show_api_error(exc)
+
+    if not suspicious_logs_found:
+        st.info("No suspicious logs matched the current rules.")
 
     st.subheader("Activity Table")
     display_cols = [
