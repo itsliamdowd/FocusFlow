@@ -18,10 +18,10 @@ st.markdown(
     .task-hero {
         border-radius: 16px;
         padding: 1.25rem 1.5rem;
-        background: linear-gradient(135deg, #111827, #1f2937 45%, #312e81);
+        background: #1e40af;
         color: #f9fafb;
         margin-bottom: 1rem;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 10px 20px rgba(30, 64, 175, 0.35);
     }
     .task-hero h1 {
         margin: 0;
@@ -29,19 +29,21 @@ st.markdown(
     }
     .task-hero p {
         margin: 0.35rem 0 0 0;
-        color: #d1d5db;
+        color: #dbeafe;
     }
     .task-card {
-        border: 1px solid rgba(148, 163, 184, 0.25);
+        border: 1px solid rgba(15, 23, 42, 0.16);
         border-radius: 14px;
         padding: 0.85rem 1rem;
-        background: rgba(15, 23, 42, 0.25);
+        background: rgba(255, 255, 255, 0.96);
         margin-bottom: 0.65rem;
+        box-shadow: 0 6px 16px rgba(2, 6, 23, 0.1);
     }
     .task-title {
         font-weight: 700;
-        color: #e2e8f0;
+        color: #0f172a;
         margin-bottom: 0.45rem;
+        line-height: 1.3;
     }
     .task-pill {
         display: inline-block;
@@ -53,24 +55,24 @@ st.markdown(
         letter-spacing: 0.01em;
     }
     .pill-category {
-        background: rgba(59, 130, 246, 0.18);
-        color: #bfdbfe;
-        border: 1px solid rgba(59, 130, 246, 0.35);
+        background: #dbeafe;
+        color: #1e3a8a;
+        border: 1px solid #93c5fd;
     }
     .pill-priority-low {
-        background: rgba(22, 163, 74, 0.18);
-        color: #bbf7d0;
-        border: 1px solid rgba(22, 163, 74, 0.35);
+        background: #dcfce7;
+        color: #166534;
+        border: 1px solid #86efac;
     }
     .pill-priority-medium {
-        background: rgba(234, 179, 8, 0.2);
-        color: #fde68a;
-        border: 1px solid rgba(234, 179, 8, 0.35);
+        background: #fef3c7;
+        color: #92400e;
+        border: 1px solid #fcd34d;
     }
     .pill-priority-high {
-        background: rgba(239, 68, 68, 0.2);
-        color: #fecaca;
-        border: 1px solid rgba(239, 68, 68, 0.35);
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #fca5a5;
     }
     </style>
     """,
@@ -81,7 +83,7 @@ st.markdown(
     """
     <div class="task-hero">
       <h1>Task Studio</h1>
-      <p>Organize what matters, keep momentum, and clear your list with style.</p>
+      <p>Organize what matters and keep your momentum.</p>
     </div>
     """,
     unsafe_allow_html=True
