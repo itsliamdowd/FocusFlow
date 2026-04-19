@@ -1,3 +1,6 @@
+import logging
+logger = logging.getLogger(__name__)
+
 import streamlit as st
 import pandas as pd
 import requests
