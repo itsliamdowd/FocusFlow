@@ -9,7 +9,7 @@ st.set_page_config(layout='wide')
 SideBarLinks()
 
 st.title('Data Analyst Console')
-st.write('### Select a task to get started.')
+st.write('Select a task to get started.')
 
 if st.button('View Study Time vs Productivity Correlations',
 			 type='primary',

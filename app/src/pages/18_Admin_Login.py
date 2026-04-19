@@ -11,14 +11,15 @@ SideBarLinks(show_home=True)
 st.title('System Administrator Login')
 
 try:
-    response = requests.get('http://web-api:4000/admin/admins', timeout=10)
-    if response.status_code != 200:
-        st.error('Could not load admin list from the API.')
-        st.stop()
+    with st.spinner('Loading...'):
+        response = requests.get('http://web-api:4000/admin/admins', timeout=10)
+        if response.status_code != 200:
+            st.error('Could not load admin list from the API.')
+            st.stop()
 
-    admins = response.json().get('admins', [])
+        admins = response.json().get('admins', [])
     if not admins:
-        st.info('No administrators found in the database.')
+        st.info('No administrmators found in the database.')
         st.stop()
 
     admin_options = {
