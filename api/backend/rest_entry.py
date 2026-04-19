@@ -1,10 +1,9 @@
-from flask import Flask, request
+from flask import Flask
 from dotenv import load_dotenv
 import os
 import logging
 
 from backend.db_connection import init_app as init_db
-from backend.auth import enforce_api_access
 from backend.simple.simple_routes import simple_routes
 from backend.ngos.ngo_routes import ngos
 from backend.students import student_bp
@@ -59,38 +58,9 @@ def create_app():
     app.register_blueprint(analyst_bp)
     app.register_blueprint(admin_bp)
 
-    def is_auth_bypass_enabled():
-        disable_auth = os.getenv("DISABLE_API_AUTH", "false").strip().lower() in {"1", "true", "yes"}
-        flask_env = os.getenv("FLASK_ENV", "").strip().lower()
-        env_name = os.getenv("ENV", "").strip().lower()
-        is_dev_env = flask_env == "development" or env_name == "development"
-        return disable_auth and is_dev_env
-
-    auth_bypass_enabled = is_auth_bypass_enabled()
-    if auth_bypass_enabled:
-        app.logger.warning("API auth bypass is enabled for development")
-
     @app.before_request
     def protect_api_routes():
-        if not app.config.get("ENABLE_API_AUTH", True):
-            return None
-        if auth_bypass_enabled:
-            return None
-
-        path = request.path
-
-        if path in {"/", "/playlist", "/niceMessage", "/message", "/data", "/student/users"} or path.startswith("/prediction/"):
-            return None
-        if path.startswith("/student"):
-            return enforce_api_access({"student", "admin"})
-        if path.startswith("/professor"):
-            return enforce_api_access({"professor", "admin"})
-        if path.startswith("/analyst"):
-            return enforce_api_access({"analyst", "admin"})
-        if path.startswith("/admin"):
-            return enforce_api_access({"admin"})
-        if path.startswith("/ngo"):
-            return enforce_api_access({"ngo", "admin", "analyst"})
+        # Local-only project: do not enforce API route auth/role checks.
         return None
 
     return app
