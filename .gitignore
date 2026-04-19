@@ -3,7 +3,9 @@ secrets.toml
 __pycache__
 secrets/
 .env
+.envrc
 .env.local
 */logs/*
 .vscode/
 .venv
+.venv-focusflow/
