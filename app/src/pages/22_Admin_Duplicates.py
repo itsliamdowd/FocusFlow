@@ -28,6 +28,7 @@ else:
         df = df.copy()
         df.insert(0, "select", False)
         st.caption("Select one or more duplicate logs, then delete them.")
+        st.caption(f"Found {len(df)} duplicate log(s).")
         edited_df = st.data_editor(
             df,
             hide_index=True,

@@ -11,12 +11,13 @@ SideBarLinks(show_home=True)
 st.title('Data Analyst Login')
 
 try:
-    response = requests.get('http://web-api:4000/analyst/users', timeout=10)
-    if response.status_code != 200:
-        st.error('Could not load analyst list from the API.')
-        st.stop()
+    with st.spinner('Loading...'):
+        response = requests.get('http://web-api:4000/analyst/users', timeout=10)
+        if response.status_code != 200:
+            st.error('Could not load analyst list from the API.')
+            st.stop()
 
-    analysts = response.json().get('analysts', [])
+        analysts = response.json().get('analysts', [])
     if not analysts:
         st.info('No analysts found in the database.')
         st.stop()
