@@ -38,7 +38,7 @@ st.write('Who would you like to login as')
 # functionality, we put a button on the screen that the user
 # can click to MIMIC logging in as that mock user.
 
-if st.button("Act as Maya, a Student.",
+if st.button("Act as Jerry, a Student.",
              type='primary',
              use_container_width=True):
     # when user clicks the button, they are now considered authenticated
@@ -47,18 +47,20 @@ if st.button("Act as Maya, a Student.",
     st.session_state['role'] = 'student'
     # we add the first name of the user (so it can be displayed on
     # subsequent pages).
-    st.session_state['first_name'] = 'Maya'
-    st.session_state['user_id'] = 1
+    st.session_state['first_name'] = 'Jerry'
+    st.session_state['user_id'] = 25
     st.session_state['institution_id'] = 1
     # finally, we ask streamlit to switch to another page, in this case, the
     # landing page for this particular user type
     logger.info("Logging in as Student Persona")
     st.switch_page('pages/00_Student_Home.py')
 
-if st.button('Act as Dr. Smith a Professor', type='primary', use_container_width=True):
+if st.button('Act as Dr. Davis a Professor', type='primary', use_container_width=True):
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'professor'
-    st.session_state['first_name'] = 'Dr. Smith'
+    st.session_state['first_name'] = 'Matthew'
+    st.session_state['user_id'] = 1
+    st.session_state['institution_id'] = 1
     st.switch_page('pages/09_Professor_Login.py')
 
 if st.button('Act as Jimmy, a System Administrator',
@@ -67,6 +69,8 @@ if st.button('Act as Jimmy, a System Administrator',
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'system admin'
     st.session_state['first_name'] = 'Jimmy'
+    st.session_state['user_id'] = 48
+    st.session_state['institution_id'] = 6
     st.switch_page('pages/20_Admin_Home.py')
 
 if st.button('Act as James, a Data Analyst.',
@@ -75,4 +79,6 @@ if st.button('Act as James, a Data Analyst.',
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'data analyst'
     st.session_state['first_name'] = 'James'
+    st.session_state['user_id'] = 45
+    st.session_state['institution_id'] = 6
     st.switch_page('pages/17_Data_Analyst_Home.py')
