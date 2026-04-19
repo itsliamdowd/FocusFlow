@@ -31,7 +31,7 @@ SideBarLinks(show_home=True)
 # ***************************************************
 
 logger.info("Loading the Home page of the app")
-st.title('CS 3200 Project Template')
+st.title('FocusFlow')
 st.write('Who would you like to login as')
 
 # For each of the user personas for which we are implementing
