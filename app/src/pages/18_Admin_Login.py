@@ -11,7 +11,7 @@ SideBarLinks(show_home=True)
 st.title('System Administrator Login')
 
 try:
-    response = requests.get('http://web-api:4000/admin/users', timeout=10)
+    response = requests.get('http://web-api:4000/admin/admins', timeout=10)
     if response.status_code != 200:
         st.error('Could not load admin list from the API.')
         st.stop()

@@ -122,7 +122,7 @@ def admin_users():
            GROUP BY i.institution_id, i.name'''
     )}), 200
 
-@admin_bp.route('/users', methods=['GET'])
+@admin_bp.route('/admins', methods=['GET'])
 @safe_db
 def get_admins():
     return jsonify({'admins': query(
